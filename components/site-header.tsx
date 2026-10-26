@@ -19,9 +19,7 @@ export function SiteHeader() {
     <header className="site-header">
       <a href="#" className="brand" aria-label="森のAI開発部 トップ">
         <span className="brand-mark">
-          <svg>
-            <use href="#tree" />
-          </svg>
+          <img src="/assets/logo-emblem.webp" alt="" width={192} height={192} />
         </span>
         <span>
           <small>実務型AI開発スクール</small>

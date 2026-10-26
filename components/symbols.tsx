@@ -19,6 +19,13 @@ export function Symbols() {
           <path d="m33 34 7 9m10-12 8 12m9-9 7 10" stroke="#a7825a" strokeWidth="3" strokeLinecap="round" />
           <path d="M35 62c0 9 4 15 8 18" fill="none" stroke="#e9b980" strokeWidth="4" strokeLinecap="round" />
         </symbol>
+        <symbol id="paw" viewBox="0 0 40 40">
+          <ellipse cx="20" cy="26" rx="9" ry="8" fill="currentColor" />
+          <ellipse cx="9" cy="15" rx="3.6" ry="4.6" fill="currentColor" />
+          <ellipse cx="16" cy="9" rx="3.6" ry="4.8" fill="currentColor" />
+          <ellipse cx="24" cy="9" rx="3.6" ry="4.8" fill="currentColor" />
+          <ellipse cx="31" cy="15" rx="3.6" ry="4.6" fill="currentColor" />
+        </symbol>
         <symbol id="sprout" viewBox="0 0 100 100">
           <path d="M51 88V48" stroke="#56764c" strokeWidth="5" strokeLinecap="round" />
           <path d="M51 62C19 64 13 42 16 24c26-3 39 9 35 38" fill="#91af67" />

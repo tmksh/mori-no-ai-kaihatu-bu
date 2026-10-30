@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans_JP({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+const notoSans = localFont({
+  src: "./fonts/noto-sans-jp-subset.woff2",
   variable: "--font-noto",
   display: "swap",
+  weight: "100 900",
 });
 
 const moriHand = localFont({

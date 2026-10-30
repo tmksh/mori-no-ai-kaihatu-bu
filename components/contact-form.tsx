@@ -15,6 +15,7 @@ export function ContactForm({ defaultPlan, onClose }: { defaultPlan: string | nu
     const data = new FormData(event.currentTarget);
     const body = new URLSearchParams();
     data.forEach((value, key) => body.append(key, String(value)));
+    body.set("subject", `【森のAI開発部】${String(data.get("お名前") ?? "").trim()}様から個別面談のお問い合わせ`);
     try {
       const response = await fetch("/__forms.html", {
         method: "POST",
@@ -63,17 +64,17 @@ export function ContactForm({ defaultPlan, onClose }: { defaultPlan: string | nu
           <span>
             お名前<b>必須</b>
           </span>
-          <input name="name" required autoComplete="name" maxLength={100} />
+          <input name="お名前" required autoComplete="name" maxLength={100} />
         </label>
         <label className="contact-field">
           <span>
             メールアドレス<b>必須</b>
           </span>
-          <input type="email" name="email" required autoComplete="email" maxLength={254} />
+          <input type="email" name="メールアドレス" required autoComplete="email" maxLength={254} />
         </label>
         <label className="contact-field">
           <span>気になっている会員</span>
-          <select name="plan" defaultValue={defaultPlan && plans.includes(defaultPlan) ? defaultPlan : plans[2]}>
+          <select name="気になっている会員" defaultValue={defaultPlan && plans.includes(defaultPlan) ? defaultPlan : plans[2]}>
             {plans.map((plan) => (
               <option key={plan} value={plan}>
                 {plan}
@@ -84,7 +85,7 @@ export function ContactForm({ defaultPlan, onClose }: { defaultPlan: string | nu
         <label className="contact-field">
           <span>ご相談内容</span>
           <textarea
-            name="message"
+            name="ご相談内容"
             rows={4}
             maxLength={2000}
             placeholder="例：これまでの学習経験や、面談で聞いてみたいこと"

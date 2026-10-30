@@ -9,15 +9,16 @@
     <!-- Netlify Forms がデプロイ時にフォーム定義を読み取るためのファイル。項目は components/contact-form.tsx と揃えること。 -->
     <form name="consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="consultation" />
+      <input type="hidden" name="subject" value="【森のAI開発部】個別面談のお問い合わせ" />
       <input name="bot-field" />
-      <input name="name" />
-      <input type="email" name="email" />
-      <select name="plan">
+      <input name="お名前" />
+      <input type="email" name="メールアドレス" />
+      <select name="気になっている会員">
         <option value="どんぐり会員">どんぐり会員</option>
         <option value="わかば会員">わかば会員</option>
         <option value="まだ決めていない">まだ決めていない</option>
       </select>
-      <textarea name="message"></textarea>
+      <textarea name="ご相談内容"></textarea>
     </form>
   </body>
 </html>

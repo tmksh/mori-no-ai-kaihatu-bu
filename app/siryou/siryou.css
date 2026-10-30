@@ -118,6 +118,21 @@
 .closing-forest{position:absolute;right:4cqw;top:50%;width:36cqw;transform:translateY(-50%);border-radius:50%;border:.5cqw solid rgba(255,255,255,.25)}
 .slide-closing .cover-operator{background:rgba(255,255,255,.14);color:#fff}
 
+/* member stages */
+.course-row article{position:relative;text-align:center}
+.course-row ul{text-align:left}
+.deck-course-stage{display:inline-block;padding:.15cqw 1.2cqw;border-radius:999px;background:#fff;border:.12cqw solid #cfe0c2;font-family:var(--hand);font-size:1.1cqw;color:var(--g-mid)}
+.deck-course-price{display:inline-block;margin:.3cqw 0 .5cqw!important;padding:.1cqw 1.2cqw;border-radius:999px;background:var(--yellow);font-size:1.05cqw;font-weight:700;color:var(--g-deep)}
+.course-row article:nth-child(2) .deck-course-price{background:var(--grad);color:#fff}
+.course-row article:nth-child(3){background:#eef6e9;border-style:dashed}
+.course-row article:nth-child(3) .deck-course-price{background:#fff;border:.12cqw solid #cfe0c2}
+
+/* agreements */
+.agree-grid{display:grid;grid-template-columns:1fr 1fr;gap:3cqw 2.4cqw;margin-top:3.4cqw!important}
+.agree-grid li{position:relative;padding:2.4cqw 2.4cqw 2cqw;border-radius:2cqw;background:#f7faf3;border:.15cqw solid #e3eed8}
+.agree-grid b{display:block;font-size:1.75cqw;color:var(--g-deep);margin-bottom:.5cqw}
+.agree-grid p{font-size:1.3cqw;line-height:1.9;color:var(--muted)}
+
 @media print{
   @page{size:1280px 720px;margin:0}
   html,body{background:#fff}

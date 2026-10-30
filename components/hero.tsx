@@ -1,3 +1,5 @@
+import { ConsultationLink } from "@/components/consultation";
+
 export function Hero() {
   return (
     <section className="hero">
@@ -20,22 +22,21 @@ export function Hero() {
       </div>
       <div className="hero-inner">
         <div className="hero-copy">
-          <p className="eyebrow">フリーランスを目指す方の、実務型AI開発スクール</p>
+          <p className="eyebrow">株式会社SHINJIDAIが運営する、実務型AI開発スクール</p>
           <h1>
             <span>学んで、実案件へ。</span>
             <br />
             <span>経験を、自分の力に。</span>
           </h1>
           <p className="hero-description">
-            案件獲得に悩んでいるあなたへ。
+            <span>案件獲得に悩んでいるあなたへ。</span>
+            <span>基礎を学び、当社の実案件にチームで挑戦する。</span>
             <br />
-            基礎を学び、チームで実案件に挑戦する。
-            <br />
-            現場で使えるスキルと経験を、ここから。
+            <span>現場で使えるスキルと経験を、ここから。</span>
           </p>
-          <a href="#consultation" className="button">
+          <ConsultationLink className="button">
             実案件への一歩を相談する <span>↗</span>
-          </a>
+          </ConsultationLink>
         </div>
       </div>
       <img

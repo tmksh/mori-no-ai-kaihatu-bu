@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useRef, useState, type ReactNode } from "react";
+import { ContactForm } from "@/components/contact-form";
 import { consultationUrl } from "@/lib/site-config";
 
 type ConsultationContextValue = {
@@ -19,6 +20,7 @@ function useConsultation() {
 
 export function ConsultationProvider({ children }: { children: ReactNode }) {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [formKey, setFormKey] = useState(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openConsultation = () => {
@@ -26,6 +28,7 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
       window.location.assign(consultationUrl);
       return;
     }
+    if (!dialogRef.current?.open) setFormKey((key) => key + 1);
     dialogRef.current?.showModal();
   };
 
@@ -61,41 +64,45 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
           <use href="#sprout" />
         </svg>
         <p className="section-label">森のAI開発部の個別面談</p>
-        <h2 id="dialog-title">
-          お話しできる日を、
-          <br />
-          楽しみにしています。
-        </h2>
-        <p>
-          個別面談の受付は、現在準備中です。
-          <br />
-          申込方法が決まり次第、このページでご案内します。
-        </p>
-        <div className="dialog-topics">
-          <strong>個別面談でお話しすること</strong>
-          <ul>
-            <li>あなたの経験や、これからの目標</li>
-            <li>自分に合ったコース・学習の進め方</li>
-            <li>実案件への参加と収益化までの道のり</li>
-          </ul>
-        </div>
-        <button className="button dialog-dismiss" onClick={closeDialog}>
-          ページに戻る <span>→</span>
-        </button>
+        <ContactForm key={formKey} defaultPlan={selectedCourse} onClose={closeDialog} />
       </dialog>
     </ConsultationContext.Provider>
   );
 }
 
-export function CourseLink({ course }: { course: string }) {
-  const { selectCourse } = useConsultation();
+export function ConsultationLink({
+  className,
+  course,
+  onOpen,
+  children,
+}: {
+  className?: string;
+  course?: string;
+  onOpen?: () => void;
+  children: ReactNode;
+}) {
+  const { selectCourse, openConsultation } = useConsultation();
   return (
     <a
       href="#consultation"
-      onClick={() => selectCourse(course)}
+      className={className}
+      onClick={(event) => {
+        event.preventDefault();
+        if (course) selectCourse(course);
+        onOpen?.();
+        openConsultation();
+      }}
     >
-      このコースについて相談する <span>↗</span>
+      {children}
     </a>
+  );
+}
+
+export function CourseLink({ course }: { course: string }) {
+  return (
+    <ConsultationLink course={course}>
+      {course}について相談する <span>↗</span>
+    </ConsultationLink>
   );
 }
 
@@ -127,7 +134,7 @@ export function ConsultationPanel() {
           今の経験に合う学び方と、実案件へのステップを一緒に考えます。
         </p>
         <p id="selected-course" className="selected-course" hidden={selectedCourse === null}>
-          {selectedCourse ? `気になっているコース：${selectedCourse}` : null}
+          {selectedCourse ? `ご相談の内容：${selectedCourse}について` : null}
         </p>
         <button type="button" className="button cream" id="consultation-button" onClick={openConsultation}>
           個別面談のご案内 <span>↗</span>

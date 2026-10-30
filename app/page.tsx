@@ -1,4 +1,10 @@
-import { ConsultationPanel, ConsultationProvider, ConsultationTrigger, CourseLink } from "@/components/consultation";
+import {
+  ConsultationLink,
+  ConsultationPanel,
+  ConsultationProvider,
+  ConsultationTrigger,
+  CourseLink,
+} from "@/components/consultation";
 import { Hero } from "@/components/hero";
 import { SiteHeader } from "@/components/site-header";
 import { Symbols } from "@/components/symbols";
@@ -15,29 +21,29 @@ const growthCycle = [
 const journeySteps = [
   {
     number: "01",
-    title: "現在地を知る",
-    text: "個別面談で経験と目標を整理。自分に合うスタートを見つけます。",
+    title: "面談で、現在地を知る",
+    text: "個別面談で、これまでの経験と目標を伺います。少人数で受け入れているため、面談を通してご参加いただけるかを判断します。",
     image: "/assets/journey-start.webp",
     alt: "ウサギとメガネのフクロウが、森の丸太に座って地図を広げ、進む道を相談する手描きイラスト",
   },
   {
     number: "02",
-    title: "学んで、つくる",
-    text: "基礎から実践へ。1on1で振り返りながら、開発経験を積みます。",
+    title: "どんぐり会員で、触れてみる",
+    text: "無料のどんぐり会員で、ChatGPTなどを使ったAI活用に触れます。自分で手を動かし、続けられるかを確かめる期間です。",
     image: "/assets/journey-learn.webp",
     alt: "ツリーハウスの勉強部屋で、キツネが本を広げてパソコンで学ぶ手描きイラスト",
   },
   {
     number: "03",
-    title: "実案件に挑戦する",
-    text: "学習状況とスキルを確認し、条件の合う実案件にチームで参加する機会をつくります。",
+    title: "わかば会員で、実案件へ",
+    text: "技術構成やセキュリティなどの前提知識を学んだうえで、業務委託として当社の実案件にチームで参加します。",
     image: "/assets/journey-project.webp",
     alt: "木の工房で、キツネ・ウサギ・リスが設計図を囲み、クマのお客さまと一緒に仕事を進める手描きイラスト",
   },
   {
     number: "04",
-    title: "経験を次の仕事へ",
-    text: "実務で得たスキルと経験を、次の提案や案件獲得、収益化につなげていきます。",
+    title: "けやきを目指す",
+    text: "お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。当社の中で、自分で仕事を回せる人を目指します。",
     image: "/assets/journey-next.webp",
     alt: "キツネとウサギが、大きな木の立つ丘へ続く道を並んで歩いていく手描きイラスト",
   },
@@ -47,7 +53,7 @@ const footerLinks = [
   { label: "トップ", href: "#main" },
   { label: "森のAI開発部とは", href: "#about" },
   { label: "学びと実案件", href: "#features" },
-  { label: "3つのコース", href: "#courses" },
+  { label: "会員のしくみ", href: "#courses" },
   { label: "実務への一歩", href: "#stories" },
   { label: "よくある質問", href: "#faq" },
   { label: "個別面談について", href: "#consultation" },
@@ -70,24 +76,26 @@ export default function HomePage() {
             <span>「学んだ。でも、</span>
             <span>案件につながらない。」</span>
           </h2>
-          <p>
-            フリーランスを目指して勉強しているのに、案件が取れない。
+          <p className="intro-worry">
+            AIや開発を勉強しているのに、仕事につながらない。
             <br />
             実務経験がないから、自信を持って提案できない。
           </p>
-          <p>
-            森のAI開発部は、<strong>学習から実案件への参加までをつなぐ</strong>
+          <p className="intro-lead">
+            森のAI開発部は、株式会社SHINJIDAIが運営する
+            <br />
+            <strong>学習から当社の実案件への参加までをつなぐ</strong>
             <br />
             実務型AI開発スクールです。
             <br />
-            基礎を身につけたら、スキルに合った案件にチームで挑戦。
+            前提知識を身につけたら、当社の案件にチームで参加。
             <br />
             実務を経験しながら、仕事に使える力を育てます。
           </p>
-          <p>
-            開発スキルに加えて、業務を理解する力、提案する力、
+          <p className="intro-goal">
+            目指すのは、お客さまとの打ち合わせを進め、
             <br />
-            納品までやりきる力も。
+            メンバーに指示を出し、人に教えられる状態。
             <br />
             実務を通して価値を届けられる<strong>「グロースAIエンジニア」</strong>を目指します。
           </p>
@@ -142,12 +150,12 @@ export default function HomePage() {
                     <svg aria-hidden="true">
                       <use href="#acorn" />
                     </svg>
-                    学んだ先で、実案件に挑戦する。
+                    学んだ先で、当社の実案件に参加する。
                   </h3>
                   <p>
-                    SHINJIDAIが案件獲得を進め、学習後にスキルに合う実案件へ参加する機会をつくります。チームで業務を理解し、開発や納品に携わりながら、実務経験を積んでいきます。
+                    当社（株式会社SHINJIDAI）がお客さまから受けた案件に、スキルに応じてチームで参加します。業務委託として報酬を受け取りながら、開発や納品に携わり、実務経験を積んでいきます。
                   </p>
-                  <span className="feature-note">基礎学習から、チームでの実案件参加へ</span>
+                  <span className="feature-note">わかば会員から、当社の案件にチームで参加</span>
                 </div>
               </article>
               <article className="feature-card">
@@ -187,19 +195,19 @@ export default function HomePage() {
                     height={800}
                     loading="lazy"
                   />
-                  <span className="feature-tag">実践力</span>
+                  <span className="feature-tag">土台から</span>
                 </div>
                 <div className="feature-body">
                   <h3>
                     <svg aria-hidden="true">
                       <use href="#acorn" />
                     </svg>
-                    実務で育てる、仕事に使えるスキル。
+                    現場に入る前に、土台をつくる。
                   </h3>
                   <p>
-                    お客さまの要望を聞き、必要な機能を考え、つくって確かめる。提案から開発・納品までの実践を通じて、現場で必要な判断や進め方を学び、次の仕事にも活かせるスキルを育てます。
+                    実案件に入る前に、基本的な技術構成やセキュリティなど、現場で欠かせない前提知識を学びます。そのうえで、お客さまの要望を聞き、つくって確かめる実践へ進みます。
                   </p>
-                  <span className="feature-note">開発・業務理解・提案・納品を実践で学ぶ</span>
+                  <span className="feature-note">技術構成・セキュリティを先に学ぶ</span>
                 </div>
               </article>
             </div>
@@ -231,12 +239,12 @@ export default function HomePage() {
                 <span>どんぐりから、</span>
                 <span>大きなけやきへ。</span>
               </h2>
-              <p>今のあなたに合う場所から。3つのコースで、じっくり育とう。</p>
+              <p>まずは無料のどんぐり会員から。行動を重ねた先で、わかば会員として実案件へ。</p>
             </div>
             <div className="course-grid">
               <article className="course donguri">
                 <div className="course-head">
-                  <span className="course-stage">その１</span>
+                  <span className="course-stage">ステップ１</span>
                   <img
                     className="course-illust"
                     src="/assets/course-donguri.webp"
@@ -248,20 +256,23 @@ export default function HomePage() {
                   <p className="course-catch">まずは、種をまこう。</p>
                 </div>
                 <div className="course-body">
-                  <h3>どんぐりコース</h3>
-                  <p className="course-lead">AI開発の基礎を学ぶ</p>
-                  <p className="course-text">「はじめて」でも大丈夫。<br />AIと手を動かし、つくる楽しさを知る。</p>
+                  <div className="course-title">
+                    <h3>どんぐり会員</h3>
+                    <span className="course-price">無料</span>
+                  </div>
+                  <p className="course-lead">AI活用に、まず触れてみる</p>
+                  <p className="course-text">ChatGPTなどを使った、かんたんなAI活用から。<br />自分で手を動かしてみる、最初の一歩です。</p>
                   <ul>
-                    <li>AI開発の基本と環境づくり</li>
-                    <li>AIへの伝え方と出力の確かめ方</li>
-                    <li>小さなアプリづくりに挑戦</li>
+                    <li>ChatGPTなど、AIツールの基本的な使い方</li>
+                    <li>日々の作業に、AIを取り入れてみる</li>
+                    <li>続けられるか、自分のペースを知る</li>
                   </ul>
-                  <CourseLink course="どんぐりコース" />
+                  <CourseLink course="どんぐり会員" />
                 </div>
               </article>
               <article className="course wakaba">
                 <div className="course-head">
-                  <span className="course-stage">その２</span>
+                  <span className="course-stage">ステップ２</span>
                   <img
                     className="course-illust"
                     src="/assets/course-wakaba.webp"
@@ -270,23 +281,29 @@ export default function HomePage() {
                     height={800}
                     loading="lazy"
                   />
-                  <p className="course-catch">できることを、広げよう。</p>
+                  <p className="course-catch">実務で、できることを広げよう。</p>
                 </div>
                 <div className="course-body">
-                  <h3>わかばコース</h3>
-                  <p className="course-lead">業務を理解し、開発する</p>
-                  <p className="course-text">つくる前に、仕事を知る。<br />困りごとを、使える仕組みに変える。</p>
+                  <div className="course-title">
+                    <h3>わかば会員</h3>
+                    <span className="course-price">有料・案件参加</span>
+                  </div>
+                  <p className="course-lead">前提知識を学び、当社の案件へ</p>
+                  <p className="course-text">技術構成やセキュリティの土台を学び、<br />業務委託として当社の実案件に参加します。</p>
                   <ul>
-                    <li>業務の流れ・課題を整理する</li>
-                    <li>必要な機能を考え、設計する</li>
-                    <li>動作確認と改善を重ねる</li>
+                    <li>基本的な技術構成・セキュリティを学ぶ</li>
+                    <li>当社の実案件にチームで参加する（報酬あり）</li>
+                    <li>1on1で振り返り、担当できる範囲を広げる</li>
                   </ul>
-                  <CourseLink course="わかばコース" />
+                  <p className="course-caution">
+                    本業の都合などで案件を続けられなくなった場合、業務委託は継続できません。入会前にご確認いただきます。
+                  </p>
+                  <CourseLink course="わかば会員" />
                 </div>
               </article>
-              <article className="course keyaki">
+              <article className="course keyaki course-goal">
                 <div className="course-head">
-                  <span className="course-stage">その３</span>
+                  <span className="course-stage">ゴール</span>
                   <img
                     className="course-illust"
                     src="/assets/course-keyaki.webp"
@@ -295,25 +312,25 @@ export default function HomePage() {
                     height={800}
                     loading="lazy"
                   />
-                  <p className="course-catch">仲間と、大きく育とう。</p>
                 </div>
                 <div className="course-body">
-                  <h3>けやきコース</h3>
-                  <p className="course-lead">提案から納品まで、チームで</p>
-                  <p className="course-text">仲間と役割を分担して、<br />お客さまに価値を届ける。</p>
+                  <p className="course-catch">仲間と、大きく育とう。</p>
+                  <h3>けやき：自分で仕事を回せる人へ</h3>
+                  <p className="course-text">
+                    卒業ラインの目安は、当社エンジニアの今の働き方。お客さまとの打ち合わせから、チームへの指示、メンバーの育成までを担える状態を目指します。
+                  </p>
                   <ul>
-                    <li>ヒアリングから提案をつくる</li>
-                    <li>チームでの開発・レビュー</li>
-                    <li>納品と、その後の改善を考える</li>
+                    <li>お客さまとの打ち合わせを進める</li>
+                    <li>メンバーに指示を出し、開発を進める</li>
+                    <li>人に教え、次のメンバーを育てる</li>
                   </ul>
-                  <CourseLink course="けやきコース" />
                 </div>
               </article>
             </div>
             <p className="course-note">
-              どこから始めるか迷っても大丈夫。経験や目標を聞きながら、一緒に考えます。
+              一度に受け入れる人数は、少人数に限っています。面談でお話を伺ったうえで、ご参加いただけるかを判断します。
               <br />
-              <small>受講料・期間・具体的なカリキュラムは、詳細が決まり次第ご案内します。</small>
+              <small>わかば会員の受講料・案件報酬・支払い方法は現在調整中です。決まり次第ご案内します。</small>
             </p>
           </div>
         </section>
@@ -339,13 +356,13 @@ export default function HomePage() {
                 <br />
                 もっと具体的に。
               </h2>
-              <p>SHINJIDAIには、未経験から業務を学び、実際に収入につなげてきたメンバーがいます。</p>
+              <p>当社（株式会社SHINJIDAI）には、未経験から業務を学び、実際に収入につなげてきたメンバーがいます。</p>
               <p>
                 何を学び、どのように実案件へ参加し、収入につなげたのか。案件を通して、どんなスキルが身についたのか。個別面談では、こうした経験をもとに、あなたの学習から実務への道のりを一緒に考えます。
               </p>
-              <a className="text-link" href="#consultation">
+              <ConsultationLink className="text-link">
                 自分の「これから」を相談する <span>↗</span>
-              </a>
+              </ConsultationLink>
             </div>
           </div>
           <div className="container">
@@ -359,16 +376,18 @@ export default function HomePage() {
                       <span aria-hidden="true">{member.name.charAt(0)}</span>
                     )}
                   </div>
-                  <p className="member-name">{member.name}</p>
-                  {member.role ? <p className="member-role">{member.role}</p> : null}
-                  <blockquote className={member.voice ? undefined : "is-pending"}>
-                    {member.voice || "コメントを準備中です"}
-                  </blockquote>
+                  <div className="member-body">
+                    <p className="member-name">{member.name}</p>
+                    {member.role ? <p className="member-role">{member.role}</p> : null}
+                    <blockquote className={member.voice ? undefined : "is-pending"}>
+                      {member.voice || "コメントを準備中です"}
+                    </blockquote>
+                  </div>
                 </li>
               ))}
             </ul>
             <p className="member-note">
-              ※ 紹介しているのはSHINJIDAIでの経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
+              ※ 紹介しているのは当社での経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
             </p>
           </div>
         </section>
@@ -382,7 +401,7 @@ export default function HomePage() {
                 <span>学びを、</span>
                 <span>仕事につなぐ道のり。</span>
               </h2>
-              <p>学習で土台をつくり、実案件で経験を積み、次の仕事につなげる。</p>
+              <p>面談から、どんぐり会員、わかば会員、そしてけやきへ。</p>
             </div>
             <div className="journey-board">
               {pawTrails.map((trail) => (
@@ -462,15 +481,23 @@ export default function HomePage() {
                   <span>Q.</span> プログラミング未経験でも大丈夫ですか？<i>＋</i>
                 </summary>
                 <p>
-                  はい。どんぐりコースでは、AI開発の基礎から取り組みます。個別面談でこれまでの経験や学習に使える時間を伺い、始め方を一緒に考えます。
+                  はい。無料のどんぐり会員では、ChatGPTなどを使ったかんたんなAI活用から始めます。個別面談でこれまでの経験や学習に使える時間を伺い、始め方を一緒に考えます。
                 </p>
               </details>
               <details>
                 <summary>
-                  <span>Q.</span> どのコースを選べばいいですか？<i>＋</i>
+                  <span>Q.</span> どこから始めればいいですか？<i>＋</i>
                 </summary>
                 <p>
-                  基礎から始めたい方はどんぐり、業務に役立つ開発を学びたい方はわかば、チームで提案から納品まで取り組みたい方はけやきが目安です。面談時に現在地を整理してご案内します。
+                  まずは無料のどんぐり会員から始めていただきます。自分で手を動かし、行動を続けられた方に、わかば会員（有料・案件参加）をご案内します。
+                </p>
+              </details>
+              <details>
+                <summary>
+                  <span>Q.</span> 誰でも参加できますか？<i>＋</i>
+                </summary>
+                <p>
+                  一度に受け入れる人数を少人数に限っているため、個別面談でお話を伺ったうえで、ご参加いただけるかを判断します。ご希望に添えない場合もありますので、あらかじめご了承ください。
                 </p>
               </details>
               <details>
@@ -478,7 +505,7 @@ export default function HomePage() {
                   <span>Q.</span> 学習はしていますが、案件獲得につながりません。<i>＋</i>
                 </summary>
                 <p>
-                  そうした方も対象です。個別面談で今のスキルや経験を確認し、必要な学習と実務へのステップを一緒に整理します。SHINJIDAIが案件獲得を進め、学習後にスキルに合う実案件へチームで参加する機会をつくります。参加は案件状況や必要なスキル等に応じて調整します。
+                  そうした方も対象です。個別面談で今のスキルや経験を確認し、必要な学習と実務へのステップを一緒に整理します。わかば会員になると、前提知識を学んだうえで、当社がお客さまから受けた案件にチームで参加します。
                 </p>
               </details>
               <details>
@@ -486,7 +513,7 @@ export default function HomePage() {
                   <span>Q.</span> 必ず案件に参加したり、収入を得られますか？<i>＋</i>
                 </summary>
                 <p>
-                  案件参加や収入を保証するものではありません。SHINJIDAIで案件獲得を進め、案件状況・必要なスキル・学習状況などに応じて、参加機会をつくっていく方針です。
+                  案件参加や収入を保証するものではありません。わかば会員は業務委託として当社の案件に参加し、報酬は担当する範囲によって変わります。本業の都合などで案件を続けられなくなった場合、業務委託は継続できません。入会前にご確認いただきます。
                 </p>
               </details>
               <details>
@@ -499,10 +526,10 @@ export default function HomePage() {
               </details>
               <details>
                 <summary>
-                  <span>Q.</span> 受講料や期間を教えてください。<i>＋</i>
+                  <span>Q.</span> 料金を教えてください。<i>＋</i>
                 </summary>
                 <p>
-                  受講料・期間・募集スケジュールは現在準備中です。決まり次第ご案内します。個別面談では、ご希望や目標に合った学び方についてお話しします。
+                  どんぐり会員は無料です。わかば会員の受講料・案件報酬・支払い方法は現在調整中のため、決まり次第ご案内します。個別面談では、ご希望や目標に合った進め方についてお話しします。
                 </p>
               </details>
             </div>

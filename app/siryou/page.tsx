@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const pains = [
   {
     title: "案件獲得の壁",
-    text: "フリーランスを目指して勉強しているのに、案件が取れない。",
+    text: "AIや開発を勉強しているのに、仕事につながらない。",
   },
   {
     title: "実務経験の壁",
@@ -42,8 +42,8 @@ const features = [
   {
     number: "01",
     tag: "実案件へ",
-    title: "学んだ先で、実案件に挑戦する。",
-    text: "SHINJIDAIが案件獲得を進め、学習後にスキルに合う実案件へ参加する機会をつくります。チームで業務を理解し、開発や納品に携わりながら、実務経験を積んでいきます。",
+    title: "学んだ先で、当社の実案件に参加する。",
+    text: "当社がお客さまから受けた案件に、スキルに応じてチームで参加します。業務委託として報酬を受け取りながら、開発や納品に携わり、実務経験を積んでいきます。",
     image: "/assets/feature-project.webp",
   },
   {
@@ -55,79 +55,104 @@ const features = [
   },
   {
     number: "03",
-    tag: "実践力",
-    title: "実務で育てる、仕事に使えるスキル。",
-    text: "お客さまの要望を聞き、必要な機能を考え、つくって確かめる。提案から開発・納品までの実践を通じて、現場で必要な判断や進め方を学びます。",
+    tag: "土台から",
+    title: "現場に入る前に、土台をつくる。",
+    text: "実案件に入る前に、基本的な技術構成やセキュリティなど、現場で欠かせない前提知識を学びます。そのうえで、つくって確かめる実践へ進みます。",
     image: "/assets/feature-practice.webp",
   },
 ];
 
 const skills = [
-  "開発スキル",
-  "業務を理解する力",
-  "提案する力",
-  "納品までやりきる力",
+  "お客さまとの打ち合わせ",
+  "メンバーへの指示",
+  "人に教え、育てる",
+  "開発・納品をやりきる",
 ];
 
 const courses = [
   {
-    name: "どんぐりコース",
-    lead: "AI開発の基礎を学ぶ",
+    stage: "ステップ１",
+    name: "どんぐり会員",
+    price: "無料",
+    lead: "AI活用に、まず触れてみる",
     catch: "まずは、種をまこう。",
     items: [
-      "AI開発の基本と環境づくり",
-      "AIへの伝え方と出力の確かめ方",
-      "小さなアプリづくりに挑戦",
+      "ChatGPTなど、AIツールの基本的な使い方",
+      "日々の作業に、AIを取り入れてみる",
+      "続けられるか、自分のペースを知る",
     ],
     image: "/assets/course-donguri.webp",
   },
   {
-    name: "わかばコース",
-    lead: "業務を理解し、開発する",
-    catch: "できることを、広げよう。",
+    stage: "ステップ２",
+    name: "わかば会員",
+    price: "有料・案件参加",
+    lead: "前提知識を学び、当社の案件へ",
+    catch: "実務で、できることを広げよう。",
     items: [
-      "業務の流れ・課題を整理する",
-      "必要な機能を考え、設計する",
-      "動作確認と改善を重ねる",
+      "基本的な技術構成・セキュリティを学ぶ",
+      "当社の実案件にチームで参加（報酬あり）",
+      "1on1で振り返り、担当範囲を広げる",
     ],
     image: "/assets/course-wakaba.webp",
   },
   {
-    name: "けやきコース",
-    lead: "提案から納品まで、チームで",
+    stage: "ゴール",
+    name: "けやき",
+    price: "卒業ライン",
+    lead: "自分で仕事を回せる人へ",
     catch: "仲間と、大きく育とう。",
     items: [
-      "ヒアリングから提案をつくる",
-      "チームでの開発・レビュー",
-      "納品と、その後の改善を考える",
+      "お客さまとの打ち合わせを進める",
+      "メンバーに指示を出し、開発を進める",
+      "人に教え、次のメンバーを育てる",
     ],
     image: "/assets/course-keyaki.webp",
+  },
+];
+
+const agreements = [
+  {
+    title: "少人数で受け入れます",
+    text: "一度に受け入れる人数を限っています。面談でお話を伺ったうえで、ご参加いただけるかを判断します。",
+  },
+  {
+    title: "まずは無料のどんぐり会員から",
+    text: "自分で手を動かし、行動を続けられた方に、わかば会員（有料・案件参加）をご案内します。",
+  },
+  {
+    title: "案件は業務委託で参加します",
+    text: "報酬は担当する範囲によって変わります。本業の都合などで続けられなくなった場合、業務委託は継続できません。",
+  },
+  {
+    title: "案件参加・収入は保証しません",
+    text: "案件状況やスキル、学習状況に応じて参加機会をつくります。入会前に、ここまでをご確認いただきます。",
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "現在地を知る",
-    text: "個別面談で経験と目標を整理。自分に合うスタートを見つけます。",
+    title: "面談で、現在地を知る",
+    text: "経験と目標を伺い、ご参加いただけるかを判断します。",
     image: "/assets/journey-start.webp",
   },
   {
     number: "02",
-    title: "学んで、つくる",
-    text: "基礎から実践へ。1on1で振り返りながら、開発経験を積みます。",
+    title: "どんぐり会員",
+    text: "無料でAI活用に触れ、自分で手を動かし続けられるかを確かめます。",
     image: "/assets/journey-learn.webp",
   },
   {
     number: "03",
-    title: "実案件に挑戦する",
-    text: "学習状況とスキルを確認し、条件の合う実案件にチームで参加する機会をつくります。",
+    title: "わかば会員",
+    text: "前提知識を学んだうえで、業務委託として当社の実案件にチームで参加します。",
     image: "/assets/journey-project.webp",
   },
   {
     number: "04",
-    title: "経験を次の仕事へ",
-    text: "実務で得たスキルと経験を、次の提案や案件獲得、収益化につなげていきます。",
+    title: "けやきを目指す",
+    text: "打ち合わせを進め、指示を出し、人に教えられる状態を目指します。",
     image: "/assets/journey-next.webp",
   },
 ];
@@ -135,19 +160,19 @@ const steps = [
 const faqs = [
   {
     q: "プログラミング未経験でも大丈夫ですか？",
-    a: "はい。どんぐりコースでは、AI開発の基礎から取り組みます。個別面談で経験や学習に使える時間を伺い、始め方を一緒に考えます。",
+    a: "はい。無料のどんぐり会員では、ChatGPTなどを使ったかんたんなAI活用から始めます。",
   },
   {
-    q: "どのコースを選べばいいですか？",
-    a: "基礎から始めたい方はどんぐり、業務に役立つ開発を学びたい方はわかば、チームで提案から納品まで取り組みたい方はけやきが目安です。",
+    q: "どこから始めればいいですか？",
+    a: "まずはどんぐり会員から。行動を続けられた方に、わかば会員をご案内します。",
   },
   {
-    q: "必ず案件に参加したり、収入を得られますか？",
-    a: "案件参加や収入を保証するものではありません。案件状況・必要なスキル・学習状況などに応じて、参加機会をつくっていく方針です。",
+    q: "誰でも参加できますか？",
+    a: "少人数で受け入れているため、面談でお話を伺ったうえで判断します。ご希望に添えない場合もあります。",
   },
   {
-    q: "受講料や期間を教えてください。",
-    a: "受講料・期間・募集スケジュールは現在準備中です。決まり次第ご案内します。",
+    q: "料金を教えてください。",
+    a: "どんぐり会員は無料です。わかば会員の受講料・案件報酬・支払い方法は現在調整中です。",
   },
 ];
 
@@ -220,9 +245,9 @@ export default function SiryouPage() {
         <section className="slide">
           <p className="deck-label">森のAI開発部とは</p>
           <h2>
-            学習から実案件への参加までをつなぐ、
+            株式会社SHINJIDAIが運営する、
             <br />
-            実務型AI開発スクールです。
+            学習から当社の実案件までをつなぐスクールです。
           </h2>
           <ol className="cycle-row">
             {cycle.map((stage) => (
@@ -233,7 +258,7 @@ export default function SiryouPage() {
             ))}
           </ol>
           <p className="deck-lead">
-            基礎を身につけたら、スキルに合った案件にチームで挑戦。実務を経験しながら、仕事に使える力を育てます。
+            前提知識を身につけたら、当社の案件にチームで参加。実務を経験しながら、仕事に使える力を育てます。
           </p>
           <SlideFooter page={3} />
         </section>
@@ -259,14 +284,14 @@ export default function SiryouPage() {
 
         <section className="slide slide-split">
           <div>
-            <p className="deck-label">目指す姿</p>
+            <p className="deck-label">ゴール（卒業ライン）</p>
             <h2>
-              実務を通して価値を届ける
+              当社の中で、自分で仕事を回せる
               <br />
               <span className="deck-grad">「グロースAIエンジニア」</span>
             </h2>
             <p className="deck-lead">
-              開発スキルに加えて、業務を理解する力、提案する力、納品までやりきる力も。つくるだけで終わらず、お客さまの困りごとを解決できる人を育てます。
+              卒業ラインの目安は、当社エンジニアの今の働き方です。お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。つくるだけで終わらず、仕事を前に進められる人を育てます。
             </p>
           </div>
           <ul className="skill-grid">
@@ -278,14 +303,16 @@ export default function SiryouPage() {
         </section>
 
         <section className="slide">
-          <p className="deck-label">3つのコース</p>
+          <p className="deck-label">会員のしくみ</p>
           <h2>どんぐりから、大きなけやきへ。</h2>
           <div className="course-row">
             {courses.map((course) => (
               <article key={course.name}>
+                <span className="deck-course-stage">{course.stage}</span>
                 <img src={course.image} alt="" width={800} height={800} />
                 <p className="deck-course-catch">{course.catch}</p>
                 <h3>{course.name}</h3>
+                <p className="deck-course-price">{course.price}</p>
                 <p className="deck-course-lead">{course.lead}</p>
                 <ul>
                   {course.items.map((item) => (
@@ -296,10 +323,24 @@ export default function SiryouPage() {
             ))}
           </div>
           <p className="deck-note">
-            ※
-            受講料・期間・具体的なカリキュラムは、詳細が決まり次第ご案内します。
+            ※ わかば会員の受講料・案件報酬・支払い方法は現在調整中です。面談時にご案内します。
           </p>
           <SlideFooter page={6} />
+        </section>
+
+        <section className="slide">
+          <p className="deck-label">ご参加の前に</p>
+          <h2>はじめる前に、そろえておきたいこと。</h2>
+          <ul className="agree-grid">
+            {agreements.map((item, index) => (
+              <li key={item.title}>
+                <span className="pain-num">{index + 1}</span>
+                <b>{item.title}</b>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ul>
+          <SlideFooter page={7} />
         </section>
 
         <section className="slide slide-green">
@@ -317,7 +358,7 @@ export default function SiryouPage() {
               </li>
             ))}
           </ol>
-          <SlideFooter page={7} />
+          <SlideFooter page={8} />
         </section>
 
         <section className="slide slide-split">
@@ -349,7 +390,7 @@ export default function SiryouPage() {
               </span>
             </div>
           </div>
-          <SlideFooter page={8} />
+          <SlideFooter page={9} />
         </section>
 
         <section className="slide">
@@ -366,7 +407,7 @@ export default function SiryouPage() {
               </div>
             ))}
           </dl>
-          <SlideFooter page={9} />
+          <SlideFooter page={10} />
         </section>
 
         <section className="slide slide-split">
@@ -374,11 +415,11 @@ export default function SiryouPage() {
             <p className="deck-label">運営会社</p>
             <h2>{operator.name}</h2>
             <p className="deck-lead">
-              SHINJIDAIには、未経験から業務を学び、実際に収入につなげてきたメンバーがいます。何を学び、どのように実案件へ参加したのか。こうした経験をもとに、学習から実務への道のりを一緒に考えます。
+              当社には、未経験から業務を学び、実際に収入につなげてきたメンバーがいます。何を学び、どのように実案件へ参加したのか。こうした経験をもとに、学習から実務への道のりを一緒に考えます。
             </p>
             <p className="deck-note">
               ※
-              紹介しているのはSHINJIDAIでの経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
+              紹介しているのは当社での経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
             </p>
           </div>
           <dl className="company-card">
@@ -397,7 +438,7 @@ export default function SiryouPage() {
               <dd>森のAI開発部（実務型AI開発スクール）</dd>
             </div>
           </dl>
-          <SlideFooter page={10} />
+          <SlideFooter page={11} />
         </section>
 
         <section className="slide slide-closing">

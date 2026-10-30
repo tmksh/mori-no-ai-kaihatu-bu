@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!-- Netlify Forms がデプロイ時にフォーム定義を読み取るためのファイル。項目は components/contact-form.tsx と揃えること。 -->
+    <form name="consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="consultation" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input type="email" name="email" />
+      <select name="plan">
+        <option value="どんぐり会員">どんぐり会員</option>
+        <option value="わかば会員">わかば会員</option>
+        <option value="まだ決めていない">まだ決めていない</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

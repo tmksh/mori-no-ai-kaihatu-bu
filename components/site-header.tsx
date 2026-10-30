@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ConsultationLink } from "@/components/consultation";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -38,7 +39,7 @@ export function SiteHeader() {
           森のAI開発部とは
         </a>
         <a href="#courses" onClick={close}>
-          3つのコース
+          会員のしくみ
         </a>
         <a href="#stories" onClick={close}>
           実務への一歩
@@ -46,9 +47,9 @@ export function SiteHeader() {
         <a href="#faq" onClick={close}>
           よくある質問
         </a>
-        <a className="button small" href="#consultation" onClick={close}>
+        <ConsultationLink className="button small" onOpen={close}>
           個別面談について <span>↗</span>
-        </a>
+        </ConsultationLink>
       </nav>
     </header>
   );

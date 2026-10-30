@@ -311,8 +311,10 @@ h2>span{display:inline-block}
 /* ---- hero: standard first-view height ---- */
 .hero{min-height:clamp(640px,calc(390px + 29vw),860px)}
 .hero-inner{padding:118px 30px 40px}
-@media(min-width:431px){.hero h1{font-size:clamp(38px,3.9vw,60px);line-height:1.6}}
-.hero-description{margin:16px 0 20px;font-size:17px;line-height:1.9}
+@media(min-width:431px){.hero h1{font-size:clamp(40px,5.6vw,82px);line-height:1.45}}
+@media(max-width:430px){.hero h1{font-size:8.4vw}}
+.hero-description{margin:20px 0 22px;font-size:17px;line-height:1.9}
+.hero-description>span{display:inline-block}
 .forest-panorama{bottom:-3.5vw}
 @media(max-width:1100px){.hero{min-height:calc(470px + 21vw)}}
 @media(max-width:800px){.hero{min-height:calc(490px + 22vw)}.hero-inner{padding:112px 20px 40px}.hero-description{font-size:15px;line-height:1.85;margin:14px 0 18px}.forest-panorama{bottom:-6vw}}
@@ -425,3 +427,71 @@ h2>span{display:inline-block}
 .footer-scene-friends{right:6%;bottom:18%;width:130px}
 .footer-scene-bubble{right:calc(6% + 90px);bottom:calc(18% + 108px);font-size:12px;padding:4px 12px}
 }
+
+/* ---- intro: worry → message → goal ---- */
+.intro .intro-worry{font-size:15px;line-height:2.1;color:#7a8a80;letter-spacing:.04em}
+.intro .intro-lead{margin-top:36px;font-size:clamp(19px,1.9vw,23px);line-height:2;font-weight:500;color:var(--ink)}
+.intro .intro-lead strong,.intro .intro-goal strong{font-weight:700;background:linear-gradient(transparent 62%,#ffe35699 62%)}
+.intro .intro-goal{font-size:16px;line-height:2.1;color:var(--muted)}
+.intro .intro-goal strong{display:inline-block;margin:6px 4px 0;font-family:var(--round);font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.5;color:var(--green)}
+@media(max-width:800px){
+.intro .intro-worry{font-size:14px}
+.intro .intro-lead{margin-top:28px;font-size:17px}
+.intro .intro-goal{font-size:14px}
+.intro .intro-goal strong{font-size:22px}
+}
+
+/* ---- courses: two member stages + goal ---- */
+.course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;max-width:960px;margin:0 auto}
+.course-title{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.course-price{padding:3px 14px;border-radius:999px;background:var(--yellow);color:var(--deep);font-size:13px;font-weight:700;line-height:1.8}
+.wakaba .course-price{background:var(--logo-gradient);color:#fff}
+.course-caution{margin:-8px 0 22px;padding:12px 14px;border-radius:14px;background:#fbf6ea;color:#6b5a3c;font-size:13px;line-height:1.8}
+.course-goal{grid-column:1/-1;flex-direction:row;align-items:stretch}
+.course-goal .course-head{flex:0 0 34%;justify-content:center;margin:10px 0 10px 10px}
+.course-goal .course-body{justify-content:center;padding:30px 36px}
+.course-goal .course-catch{margin-bottom:4px;color:var(--green)}
+.course-goal .course-body h3{font-size:clamp(22px,2.4vw,28px);word-break:auto-phrase}
+.course-goal .course-text{margin-top:10px;font-size:15px}
+.course-goal ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0}
+.course-goal li{padding:10px 12px;border:0;border-radius:12px;background:var(--tint);font-size:13.5px;line-height:1.7;word-break:auto-phrase}
+@media(max-width:960px){
+.course-grid{grid-template-columns:1fr;max-width:460px}
+.course-goal{flex-direction:column}
+.course-goal .course-head{margin:10px 10px 0}
+.course-goal .course-body{padding:22px 22px 26px}
+.course-goal ul{grid-template-columns:1fr}
+}
+
+/* ---- member voices: two per row ---- */
+.member-voices{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:960px;margin:72px auto 0}
+.member-voice{flex-direction:row;align-items:center;gap:22px;padding:24px 26px;text-align:left}
+.member-photo{flex-shrink:0;width:120px;height:120px;margin:0}
+.member-body{flex:1;min-width:0}
+.member-voice blockquote{margin-top:10px}
+.member-voice blockquote:before{top:50%;left:-7px;transform:translateY(-50%) rotate(45deg)}
+.member-voice blockquote.is-pending{text-align:left}
+@media(max-width:1000px){.member-voices{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:24px}}
+@media(max-width:800px){
+.member-voices{grid-template-columns:1fr;gap:18px;margin-top:56px}
+.member-voice{gap:16px;padding:18px}
+.member-photo{width:84px;height:84px;margin:0;border-width:4px}
+}
+
+/* ---- consultation dialog: inquiry form ---- */
+dialog{max-height:calc(100dvh - 32px);overflow-y:auto}
+dialog h2{font-size:clamp(22px,3vw,27px);line-height:1.6;margin-bottom:12px}
+.contact-title>span{display:inline-block}
+.contact-form{display:grid;gap:16px;margin-top:22px;text-align:left}
+.contact-field{display:grid;gap:6px}
+.contact-field>span{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--deep)}
+.contact-field b{padding:0 8px;border-radius:999px;background:#fbe9d6;color:#a35a1c;font-size:11px;font-weight:700;line-height:1.8}
+.contact-field input,.contact-field select,.contact-field textarea{width:100%;padding:12px 14px;border:1px solid #cfe0d2;border-radius:14px;background:#fbfdf9;color:var(--ink);font:inherit;font-size:16px;line-height:1.6}
+.contact-field textarea{resize:vertical;min-height:110px}
+.contact-field input:focus,.contact-field select:focus,.contact-field textarea:focus{outline:3px solid #bfe0b8;outline-offset:0;border-color:var(--green)}
+.contact-hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.contact-privacy{font-size:12px;line-height:1.8;color:var(--muted)}
+.contact-error{padding:10px 14px;border-radius:12px;background:#fdecea;color:#a3281c;font-size:13px}
+.contact-submit{justify-self:center;min-width:240px;margin-top:4px}
+.contact-submit:disabled{opacity:.6;cursor:wait;transform:none}
+.contact-done p{margin-bottom:24px;font-size:15px;color:var(--muted)}

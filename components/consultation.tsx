@@ -99,6 +99,15 @@ export function CourseLink({ course }: { course: string }) {
   );
 }
 
+export function ConsultationTrigger({ className, children }: { className?: string; children: ReactNode }) {
+  const { openConsultation } = useConsultation();
+  return (
+    <button type="button" className={className} onClick={openConsultation}>
+      {children}
+    </button>
+  );
+}
+
 export function ConsultationPanel() {
   const { selectedCourse, openConsultation } = useConsultation();
   return (

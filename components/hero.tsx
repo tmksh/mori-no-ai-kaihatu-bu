@@ -1,15 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 export function Hero() {
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("motion-paused", paused);
-    return () => document.documentElement.classList.remove("motion-paused");
-  }, [paused]);
-
   return (
     <section className="hero">
       <div className="sky" aria-hidden="true">
@@ -57,19 +46,10 @@ export function Hero() {
         height={1024}
         fetchPriority="high"
       />
-      <div className="hero-bottom">
-        <a href="#about">
-          森の中を、のぞいてみよう <span>↓</span>
-        </a>
-        <button
-          type="button"
-          className="motion-toggle"
-          aria-pressed={paused}
-          onClick={() => setPaused((current) => !current)}
-        >
-          {paused ? "動きを再開する ▷" : "動きを止める Ⅱ"}
-        </button>
-      </div>
+      <svg className="hero-wave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+        <path className="hero-wave-accent" d="M760 180C900 120 1040 70 1190 62C1300 56 1390 70 1440 84V180Z" />
+        <path d="M0 26C150 4 300 30 420 92C540 154 720 168 900 150C1080 132 1230 96 1440 118V180H0Z" />
+      </svg>
     </section>
   );
 }

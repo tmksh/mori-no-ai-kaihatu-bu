@@ -1,7 +1,8 @@
-import { ConsultationPanel, ConsultationProvider, CourseLink } from "@/components/consultation";
+import { ConsultationPanel, ConsultationProvider, ConsultationTrigger, CourseLink } from "@/components/consultation";
 import { Hero } from "@/components/hero";
 import { SiteHeader } from "@/components/site-header";
 import { Symbols } from "@/components/symbols";
+import { memberVoices } from "@/lib/member-voices";
 import { operator } from "@/lib/site-config";
 
 const growthCycle = [
@@ -40,6 +41,16 @@ const journeySteps = [
     image: "/assets/journey-next.webp",
     alt: "キツネとウサギが、大きな木の立つ丘へ続く道を並んで歩いていく手描きイラスト",
   },
+];
+
+const footerLinks = [
+  { label: "トップ", href: "#main" },
+  { label: "森のAI開発部とは", href: "#about" },
+  { label: "学びと実案件", href: "#features" },
+  { label: "3つのコース", href: "#courses" },
+  { label: "実務への一歩", href: "#stories" },
+  { label: "よくある質問", href: "#faq" },
+  { label: "個別面談について", href: "#consultation" },
 ];
 
 const pawTrails = ["paw-trail-one", "paw-trail-two", "paw-trail-three"];
@@ -329,22 +340,36 @@ export default function HomePage() {
                 もっと具体的に。
               </h2>
               <p>SHINJIDAIには、未経験から業務を学び、実際に収入につなげてきたメンバーがいます。</p>
-              <div className="member-names">
-                <span>じゅっきー</span>
-                <span>あやとくん</span>
-                <span>井上さん</span>
-                <span>あきむねくん</span>
-              </div>
               <p>
                 何を学び、どのように実案件へ参加し、収入につなげたのか。案件を通して、どんなスキルが身についたのか。個別面談では、こうした経験をもとに、あなたの学習から実務への道のりを一緒に考えます。
-              </p>
-              <p className="quiet">
-                ※ 上記はSHINJIDAIでの経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
               </p>
               <a className="text-link" href="#consultation">
                 自分の「これから」を相談する <span>↗</span>
               </a>
             </div>
+          </div>
+          <div className="container">
+            <ul className="member-voices" aria-label="メンバーの声">
+              {memberVoices.map((member) => (
+                <li key={member.name} className="member-voice">
+                  <div className="member-photo">
+                    {member.photo ? (
+                      <img src={member.photo} alt={`${member.name}の写真`} width={240} height={240} loading="lazy" />
+                    ) : (
+                      <span aria-hidden="true">{member.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <p className="member-name">{member.name}</p>
+                  {member.role ? <p className="member-role">{member.role}</p> : null}
+                  <blockquote className={member.voice ? undefined : "is-pending"}>
+                    {member.voice || "コメントを準備中です"}
+                  </blockquote>
+                </li>
+              ))}
+            </ul>
+            <p className="member-note">
+              ※ 紹介しているのはSHINJIDAIでの経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
+            </p>
           </div>
         </section>
         <section className="journey section">
@@ -485,29 +510,80 @@ export default function HomePage() {
         </section>
         <ConsultationPanel />
       </main>
-      <footer>
-        <div className="footer-inner">
-          <a href="#" className="brand">
-            <span className="brand-mark">
-              <img src="/assets/logo-emblem.webp" alt="" width={192} height={192} loading="lazy" />
-            </span>
-            <span>
-              <small>実務型AI開発スクール</small>
-              <strong>森のAI開発部</strong>
-            </span>
-          </a>
-          <p>小さな一歩が、大きな未来をつくる。</p>
-          <a href="#main">ページの先頭へ ↑</a>
-        </div>
-        <div className="footer-bottom">
-          <span>
-            運営：
-            <a className="footer-operator" href={operator.url} target="_blank" rel="noopener noreferrer">
-              {operator.name}
+      <footer className="site-footer">
+        <svg className="footer-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="footer-wave-fill" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stopColor="#1d6a4c" />
+              <stop offset=".5" stopColor="#2a7d4f" />
+              <stop offset="1" stopColor="#3f9a5a" />
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#footer-wave-fill)"
+            d="M0 0H1440V70C1360 40 1290 22 1200 34S1030 104 900 112 690 54 560 34 330 30 220 70 70 112 0 96Z"
+          />
+        </svg>
+        <a href="#main" className="footer-pagetop">
+          <span aria-hidden="true">↑</span>
+          PAGETOP
+        </a>
+        <div className="footer-main">
+          <div className="footer-info">
+            <a href="#" className="footer-brand" aria-label="森のAI開発部 トップ">
+              <img src="/assets/logo-mark.webp" alt="" width={256} height={256} loading="lazy" />
+              <span>
+                <small>実務型AI開発スクール</small>
+                <strong>森のAI開発部</strong>
+              </span>
             </a>
-          </span>
-          <span>© 森のAI開発部</span>
-          <span>学んで、つくって、一緒に育とう。</span>
+            <p className="footer-tagline">
+              <span>小さな一歩が、</span>
+              <span>大きな未来をつくる。</span>
+            </p>
+            <p className="footer-operator-line">
+              運営：
+              <a className="footer-operator" href={operator.url} target="_blank" rel="noopener noreferrer">
+                {operator.name}
+              </a>
+            </p>
+          </div>
+          <nav className="footer-nav" aria-label="フッターナビゲーション">
+            <ul>
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>
+                    <span aria-hidden="true">→</span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="footer-side">
+            <ConsultationTrigger className="footer-cta">
+              <span className="footer-cta-acorns" aria-hidden="true">
+                <svg>
+                  <use href="#acorn" />
+                </svg>
+                <svg>
+                  <use href="#acorn" />
+                </svg>
+              </span>
+              <span className="footer-cta-label">
+                個別面談のご案内 <span aria-hidden="true">↗</span>
+              </span>
+            </ConsultationTrigger>
+            <p className="footer-copyright">© 森のAI開発部</p>
+          </div>
+        </div>
+        <div className="footer-scene" aria-hidden="true">
+          <div className="footer-scene-photo">
+            <img src="/assets/forest-landscape.webp" alt="" width={1536} height={1024} loading="lazy" />
+          </div>
+          <div className="footer-scene-hill" />
+          <p className="footer-scene-bubble">一緒に育とう！</p>
+          <img className="footer-scene-friends" src="/assets/forest-friends.webp" alt="" width={1254} height={1254} loading="lazy" />
         </div>
       </footer>
     </ConsultationProvider>

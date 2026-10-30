@@ -19,12 +19,9 @@ export function SiteHeader() {
     <header className="site-header">
       <a href="#" className="brand" aria-label="森のAI開発部 トップ">
         <span className="brand-mark">
-          <img src="/assets/logo-emblem.webp" alt="" width={192} height={192} />
+          <img src="/assets/logo-mark.webp" alt="" width={256} height={256} />
         </span>
-        <span>
-          <small>実務型AI開発スクール</small>
-          <strong>森のAI開発部</strong>
-        </span>
+        <strong>森のAI開発部</strong>
       </a>
       <button
         className="menu-toggle"

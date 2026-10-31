@@ -442,25 +442,14 @@ h2>span{display:inline-block}
 }
 
 /* ---- courses: two member stages + goal ---- */
-.course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;max-width:960px;margin:0 auto}
+.course-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .course-title{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
 .course-price{padding:3px 14px;border-radius:999px;background:var(--yellow);color:var(--deep);font-size:13px;font-weight:700;line-height:1.8}
 .wakaba .course-price{background:var(--logo-gradient);color:#fff}
-.course-caution{margin:-8px 0 22px;padding:12px 14px;border-radius:14px;background:#fbf6ea;color:#6b5a3c;font-size:13px;line-height:1.8}
-.course-goal{grid-column:1/-1;flex-direction:row;align-items:stretch}
-.course-goal .course-head{flex:0 0 34%;justify-content:center;margin:10px 0 10px 10px}
-.course-goal .course-body{justify-content:center;padding:30px 36px}
-.course-goal .course-catch{margin-bottom:4px;color:var(--green)}
-.course-goal .course-body h3{font-size:clamp(22px,2.4vw,28px);word-break:auto-phrase}
-.course-goal .course-text{margin-top:10px;font-size:15px}
-.course-goal ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0}
-.course-goal li{padding:10px 12px;border:0;border-radius:12px;background:var(--tint);font-size:13.5px;line-height:1.7;word-break:auto-phrase}
+.keyaki .course-price{background:#e3f1e0;color:var(--green)}
+.course-body li{word-break:auto-phrase}
 @media(max-width:960px){
-.course-grid{grid-template-columns:1fr;max-width:460px}
-.course-goal{flex-direction:column}
-.course-goal .course-head{margin:10px 10px 0}
-.course-goal .course-body{padding:22px 22px 26px}
-.course-goal ul{grid-template-columns:1fr}
+.course-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
 }
 
 /* ---- member voices: two per row ---- */

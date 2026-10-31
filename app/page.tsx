@@ -295,13 +295,10 @@ export default function HomePage() {
                     <li>当社の実案件にチームで参加する（報酬あり）</li>
                     <li>1on1で振り返り、担当できる範囲を広げる</li>
                   </ul>
-                  <p className="course-caution">
-                    本業の都合などで案件を続けられなくなった場合、業務委託は継続できません。入会前にご確認いただきます。
-                  </p>
                   <CourseLink course="わかば会員" />
                 </div>
               </article>
-              <article className="course keyaki course-goal">
+              <article className="course keyaki">
                 <div className="course-head">
                   <span className="course-stage">ゴール</span>
                   <img
@@ -312,10 +309,14 @@ export default function HomePage() {
                     height={800}
                     loading="lazy"
                   />
+                  <p className="course-catch">仲間と、大きく育とう。</p>
                 </div>
                 <div className="course-body">
-                  <p className="course-catch">仲間と、大きく育とう。</p>
-                  <h3>けやき：自分で仕事を回せる人へ</h3>
+                  <div className="course-title">
+                    <h3>けやき</h3>
+                    <span className="course-price">目指す姿</span>
+                  </div>
+                  <p className="course-lead">自分で仕事を回せる人へ</p>
                   <p className="course-text">
                     卒業ラインの目安は、当社エンジニアの今の働き方。お客さまとの打ち合わせから、チームへの指示、メンバーの育成までを担える状態を目指します。
                   </p>
@@ -324,6 +325,7 @@ export default function HomePage() {
                     <li>メンバーに指示を出し、開発を進める</li>
                     <li>人に教え、次のメンバーを育てる</li>
                   </ul>
+                  <CourseLink course="けやき" />
                 </div>
               </article>
             </div>

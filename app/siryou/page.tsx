@@ -32,10 +32,10 @@ const pains = [
 ];
 
 const cycle = [
-  { label: "学ぶ", image: "/assets/growth-learn.webp" },
-  { label: "つくる", image: "/assets/growth-make.webp" },
-  { label: "実案件へ", image: "/assets/growth-project.webp" },
-  { label: "力にする", image: "/assets/growth-grow.webp" },
+  { label: "学ぶ", image: "/assets/cycle-learn.webp" },
+  { label: "つくる", image: "/assets/cycle-make.webp" },
+  { label: "実案件へ", image: "/assets/cycle-project.webp" },
+  { label: "力にする", image: "/assets/cycle-grow.webp" },
 ];
 
 const features = [
@@ -99,11 +99,11 @@ const courses = [
   {
     stage: "ゴール",
     name: "けやき",
-    price: "卒業ライン",
+    price: "目指す姿",
     lead: "自分で仕事を回せる人へ",
     catch: "仲間と、大きく育とう。",
     items: [
-      "お客さまとの打ち合わせを進める",
+      "背景と目的を整理し、打ち合わせを進める",
       "メンバーに指示を出し、開発を進める",
       "人に教え、次のメンバーを育てる",
     ],
@@ -134,25 +134,25 @@ const steps = [
   {
     number: "01",
     title: "面談で、現在地を知る",
-    text: "経験と目標を伺い、ご参加いただけるかを判断します。",
+    text: "これまでの経験や学習に使える時間、目指したい働き方を伺います。少人数で受け入れているため、面談を通してご参加いただけるかを判断します。",
     image: "/assets/journey-start.webp",
   },
   {
     number: "02",
-    title: "どんぐり会員",
-    text: "無料でAI活用に触れ、自分で手を動かし続けられるかを確かめます。",
+    title: "どんぐり会員（無料）",
+    text: "ChatGPTなどを使った、かんたんなAI活用から始めます。自分で手を動かし、行動を続けられるかを確かめる期間です。毎月の自己評価で、できたことを振り返ります。",
     image: "/assets/journey-learn.webp",
   },
   {
     number: "03",
-    title: "わかば会員",
-    text: "前提知識を学んだうえで、業務委託として当社の実案件にチームで参加します。",
+    title: "わかば会員（有料・案件参加）",
+    text: "技術構成やセキュリティなどの前提知識を学んだうえで、業務委託として当社の実案件にチームで参加します。1on1で振り返りながら、担当できる範囲を広げます。",
     image: "/assets/journey-project.webp",
   },
   {
     number: "04",
     title: "けやきを目指す",
-    text: "打ち合わせを進め、指示を出し、人に教えられる状態を目指します。",
+    text: "背景と目的を整理して打ち合わせを進め、メンバーに指示を出し、人に教えられる状態へ。たどり着いたあとの関わり方も、面談で一緒に決めます。",
     image: "/assets/journey-next.webp",
   },
 ];
@@ -284,14 +284,14 @@ export default function SiryouPage() {
 
         <section className="slide slide-split">
           <div>
-            <p className="deck-label">ゴール（卒業ライン）</p>
+            <p className="deck-label">ゴール（目指す姿）</p>
             <h2>
               当社の中で、自分で仕事を回せる
               <br />
               <span className="deck-grad">「グロースAIエンジニア」</span>
             </h2>
             <p className="deck-lead">
-              卒業ラインの目安は、当社エンジニアの今の働き方です。お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。つくるだけで終わらず、仕事を前に進められる人を育てます。
+              目安は、当社エンジニアの今の働き方です。背景と目的を整理してお客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。つくるだけで終わらず、仕事を前に進められる人を育てます。たどり着いたあとの次の挑戦も、一緒に考えます。
             </p>
           </div>
           <ul className="skill-grid">
@@ -382,6 +382,7 @@ export default function SiryouPage() {
               <li>今の「できた」を振り返る</li>
               <li>つまずいていることを整理する</li>
               <li>次の小さな目標を決める</li>
+              <li>月に1回、自己評価を書いてみる</li>
             </ul>
             <div className="note-pace">
               <b>2週間に1回</b>
@@ -419,7 +420,7 @@ export default function SiryouPage() {
             </p>
             <p className="deck-note">
               ※
-              紹介しているのは当社での経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
+              紹介しているのは当社での経験であり、本スクールの受講生の実績ではありません。成果には個人差があります。
             </p>
           </div>
           <dl className="company-card">

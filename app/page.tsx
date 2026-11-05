@@ -6,16 +6,17 @@ import {
   CourseLink,
 } from "@/components/consultation";
 import { Hero } from "@/components/hero";
+import { ScrollMotion } from "@/components/scroll-motion";
 import { SiteHeader } from "@/components/site-header";
 import { Symbols } from "@/components/symbols";
 import { memberVoices } from "@/lib/member-voices";
 import { operator } from "@/lib/site-config";
 
 const growthCycle = [
-  { label: "学ぶ", next: "実践", image: "/assets/growth-learn.webp" },
-  { label: "つくる", next: "スキル確認", image: "/assets/growth-make.webp" },
-  { label: "実案件へ", next: "実務経験", image: "/assets/growth-project.webp" },
-  { label: "力にする", next: "次の挑戦へ", image: "/assets/growth-grow.webp" },
+  { label: "学ぶ", next: "実践", image: "/assets/cycle-learn.webp" },
+  { label: "つくる", next: "スキル確認", image: "/assets/cycle-make.webp" },
+  { label: "実案件へ", next: "実務経験", image: "/assets/cycle-project.webp" },
+  { label: "力にする", next: "次の挑戦へ", image: "/assets/cycle-grow.webp" },
 ];
 
 const journeySteps = [
@@ -43,7 +44,7 @@ const journeySteps = [
   {
     number: "04",
     title: "けやきを目指す",
-    text: "お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。当社の中で、自分で仕事を回せる人を目指します。",
+    text: "お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。当社の中で、自分で仕事を回せる人を目指します。その先の関わり方も、面談で一緒に決めていきます。",
     image: "/assets/journey-next.webp",
     alt: "キツネとウサギが、大きな木の立つ丘へ続く道を並んで歩いていく手描きイラスト",
   },
@@ -61,6 +62,28 @@ const footerLinks = [
 
 const pawTrails = ["paw-trail-one", "paw-trail-two", "paw-trail-three"];
 
+const marqueeTags = [
+  "はじめてのAI活用",
+  "どんぐり会員は無料",
+  "当社の実案件にチームで参加",
+  "定期1on1で伴走",
+  "技術構成とセキュリティから",
+  "少人数で受け入れ",
+  "グロースAIエンジニアへ",
+];
+
+const growStages = [
+  { key: "sprout", src: "sprout", width: 260, height: 203, label: "どんぐり" },
+  { key: "sapling", src: "sapling", width: 320, height: 616, label: "わかば" },
+  { key: "young", src: "young", width: 420, height: 505, label: "" },
+  { key: "keyaki", src: "keyaki", width: 560, height: 582, label: "けやき" },
+];
+
+const hillFlowers = [
+  [80, 215], [150, 232], [260, 206], [330, 240], [420, 196], [520, 218], [610, 186], [700, 204],
+  [780, 172], [880, 192], [960, 152], [1050, 176], [1120, 132], [1230, 152], [1300, 112], [1390, 132],
+];
+
 export default function HomePage() {
   return (
     <ConsultationProvider>
@@ -69,8 +92,25 @@ export default function HomePage() {
       </a>
       <Symbols />
       <SiteHeader />
+      <ScrollMotion />
       <main id="main">
         <Hero />
+        <div className="marquee" aria-hidden="true">
+          <div className="marquee-track">
+            {[0, 1].map((round) => (
+              <ul key={round}>
+                {marqueeTags.map((tag) => (
+                  <li key={tag}>
+                    <svg>
+                      <use href="#leaf" />
+                    </svg>
+                    #{tag}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
         <section id="about" className="intro section">
           <h2>
             <span>「学んだ。でも、</span>
@@ -114,12 +154,8 @@ export default function HomePage() {
               ))}
             </ol>
           </div>
-          <svg className="intro-tree tree-left" aria-hidden="true">
-            <use href="#tree" />
-          </svg>
-          <svg className="intro-tree tree-right" aria-hidden="true">
-            <use href="#sprout" />
-          </svg>
+          <img className="intro-tree tree-left" src="/assets/intro/fox-tree.webp" alt="" width={400} height={603} loading="lazy" />
+          <img className="intro-tree tree-right" src="/assets/intro/rabbit-sapling.webp" alt="" width={400} height={630} loading="lazy" />
         </section>
         <section id="features" className="features section">
           <div className="container">
@@ -225,12 +261,31 @@ export default function HomePage() {
           <svg className="hill-cloud hill-cloud-two" viewBox="0 0 200 70">
             <path d="M14 56c-12-2-14-18-2-23 0-14 18-20 28-11 6-15 30-17 38-3 9-9 27-6 30 7 14-3 26 6 22 18 10 1 16 8 12 13-3 3-8 4-14 4H22c-3 0-6-2-8-5Z" />
           </svg>
-          <svg className="hill-shape" viewBox="0 0 1440 200" preserveAspectRatio="none">
-            <path d="M0 118C110 92 250 26 420 24S650 112 800 114S1010 38 1150 42S1360 104 1440 126V200H0Z" />
-          </svg>
-          <svg className="hill-tree">
-            <use href="#tree" />
-          </svg>
+          <div className="hill-scene">
+            <svg className="hill-shape hill-back" viewBox="0 0 1440 260" preserveAspectRatio="none">
+              <path d="M0 150C200 110 380 120 560 100S900 60 1100 50S1360 20 1440 30V260H0Z" />
+            </svg>
+            <svg className="hill-shape hill-mid" viewBox="0 0 1440 260" preserveAspectRatio="none">
+              <path d="M0 180C260 160 480 140 700 130S1050 100 1260 70S1400 60 1440 62V260H0Z" />
+            </svg>
+            {growStages.map((stage) => (
+              <div key={stage.src} className={`grow-item grow-${stage.key}`}>
+                <img src={`/assets/grow/${stage.src}.webp`} alt="" width={stage.width} height={stage.height} loading="lazy" />
+                {stage.label && <span>{stage.label}</span>}
+              </div>
+            ))}
+            <svg className="hill-shape hill-front" viewBox="0 0 1440 260" preserveAspectRatio="none">
+              <path d="M0 200C240 190 420 160 640 150S1000 120 1180 92S1380 70 1440 72V260H0Z" />
+              <g className="hill-flowers">
+                {hillFlowers.map(([x, y], i) => (
+                  <circle key={x} cx={x} cy={y} r={i % 3 === 0 ? 3.2 : 4.2} style={{ "--i": i } as React.CSSProperties} />
+                ))}
+              </g>
+            </svg>
+            <div className="grow-squirrel">
+              <img src="/assets/grow/squirrel.webp" alt="" width={220} height={187} loading="lazy" />
+            </div>
+          </div>
         </div>
         <section id="courses" className="courses section">
           <div className="container">
@@ -318,10 +373,10 @@ export default function HomePage() {
                   </div>
                   <p className="course-lead">自分で仕事を回せる人へ</p>
                   <p className="course-text">
-                    卒業ラインの目安は、当社エンジニアの今の働き方。お客さまとの打ち合わせから、チームへの指示、メンバーの育成までを担える状態を目指します。
+                    目安は、当社エンジニアの今の働き方。お客さまとの打ち合わせから、チームへの指示、メンバーの育成までを担える状態を目指します。たどり着いたあとの次の挑戦も、一緒に考えます。
                   </p>
                   <ul>
-                    <li>お客さまとの打ち合わせを進める</li>
+                    <li>背景と目的を整理し、打ち合わせを進める</li>
                     <li>メンバーに指示を出し、開発を進める</li>
                     <li>人に教え、次のメンバーを育てる</li>
                   </ul>
@@ -389,7 +444,7 @@ export default function HomePage() {
               ))}
             </ul>
             <p className="member-note">
-              ※ 紹介しているのは当社での経験であり、本スクールの卒業生実績ではありません。成果には個人差があります。
+              ※ 紹介しているのは当社での経験であり、本スクールの受講生の実績ではありません。成果には個人差があります。受講生の毎月の振り返りは、ご本人の了承を得たうえで、今後ここで紹介していきます。
             </p>
           </div>
         </section>
@@ -529,6 +584,14 @@ export default function HomePage() {
               <details>
                 <summary>
                   <span>Q.</span> 料金を教えてください。<i>＋</i>
+                  <span>Q.</span> けやきにたどり着いたら、どうなりますか？<i>＋</i>
+                </summary>
+                <p>
+                  そこで終わりではありません。当社の中でどんな役割を担っていくか、次にどんな挑戦をするかを、面談で一緒に決めていきます。
+                </p>
+              </details>
+              <details>
+                <summary>
                 </summary>
                 <p>
                   どんぐり会員は無料です。わかば会員の受講料・案件報酬・支払い方法は現在調整中のため、決まり次第ご案内します。個別面談では、ご希望や目標に合った進め方についてお話しします。
@@ -540,19 +603,6 @@ export default function HomePage() {
         <ConsultationPanel />
       </main>
       <footer className="site-footer">
-        <svg className="footer-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="footer-wave-fill" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0" stopColor="#1d6a4c" />
-              <stop offset=".5" stopColor="#2a7d4f" />
-              <stop offset="1" stopColor="#3f9a5a" />
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#footer-wave-fill)"
-            d="M0 0H1440V70C1360 40 1290 22 1200 34S1030 104 900 112 690 54 560 34 330 30 220 70 70 112 0 96Z"
-          />
-        </svg>
         <a href="#main" className="footer-pagetop">
           <span aria-hidden="true">↑</span>
           PAGETOP

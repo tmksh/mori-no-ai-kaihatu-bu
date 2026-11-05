@@ -133,6 +133,13 @@
 .agree-grid b{display:block;font-size:1.75cqw;color:var(--g-deep);margin-bottom:.5cqw}
 .agree-grid p{font-size:1.3cqw;line-height:1.9;color:var(--muted)}
 
+/* journey: 2x2 */
+.step-row{grid-template-columns:1fr 1fr;gap:2.4cqw 2.6cqw;margin-top:2.6cqw!important}
+.step-row li{display:grid;grid-template-columns:16cqw 1fr;grid-template-rows:auto 1fr;column-gap:2cqw;align-content:center;padding:1.8cqw 2.2cqw 1.8cqw 1.8cqw;border-radius:2.2cqw;background:rgba(255,255,255,.1)}
+.step-row .step-pic{grid-row:1/3;align-self:center}
+.step-row h3{grid-column:2;justify-self:start;margin-top:0;font-size:1.6cqw}
+.step-row p{grid-column:2;margin-top:.9cqw!important;font-size:1.3cqw;line-height:1.85}
+
 @media print{
   @page{size:1280px 720px;margin:0}
   html,body{background:#fff}

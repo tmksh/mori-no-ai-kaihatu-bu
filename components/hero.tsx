@@ -1,4 +1,4 @@
-import { ConsultationLink } from "@/components/consultation";
+import type React from "react";
 
 export function Hero() {
   return (
@@ -22,7 +22,6 @@ export function Hero() {
       </div>
       <div className="hero-inner">
         <div className="hero-copy">
-          <p className="eyebrow">株式会社SHINJIDAIが運営する、実務型AI開発スクール</p>
           <h1>
             <span>学んで、実案件へ。</span>
             <br />
@@ -34,19 +33,29 @@ export function Hero() {
             <br />
             <span>現場で使えるスキルと経験を、ここから。</span>
           </p>
-          <ConsultationLink className="button">
-            実案件への一歩を相談する <span>↗</span>
-          </ConsultationLink>
         </div>
       </div>
-      <img
-        className="forest-panorama"
-        src="/assets/forest-landscape.webp"
-        alt="緑の丘と木々に囲まれた部室で、キツネやウサギたちが一緒に開発を学ぶ、手描きの森の風景"
-        width={1536}
-        height={1024}
-        fetchPriority="high"
-      />
+      <div
+        className="forest-panorama hero-scene"
+        role="img"
+        aria-label="緑の丘と木々に囲まれた森で、キツネやウサギ、クマたちが一緒に開発を学ぶ、手描きの森の風景"
+      >
+        <div className="scene-layer scene-hills" style={{ "--depth": 0.15 } as React.CSSProperties}>
+          <img src="/assets/hero/hills.webp" alt="" width={1280} height={336} fetchPriority="high" />
+        </div>
+        <div className="scene-layer scene-tree" style={{ "--depth": 0.45 } as React.CSSProperties}>
+          <img src="/assets/hero/tree-left.webp" alt="" width={640} height={942} />
+        </div>
+        <div className="scene-layer scene-house" style={{ "--depth": 0.35 } as React.CSSProperties}>
+          <img src="/assets/hero/treehouse.webp" alt="" width={597} height={1015} />
+        </div>
+        <div className="scene-layer scene-animals" style={{ "--depth": 0.05 } as React.CSSProperties}>
+          <img src="/assets/hero/animals.webp" alt="" width={760} height={472} />
+        </div>
+        <div className="scene-layer scene-bird" style={{ "--depth": -0.5 } as React.CSSProperties}>
+          <img src="/assets/hero/bird.webp" alt="" width={220} height={222} />
+        </div>
+      </div>
       <svg className="hero-wave" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
         <path className="hero-wave-accent" d="M760 180C900 120 1040 70 1190 62C1300 56 1390 70 1440 84V180Z" />
         <path d="M0 26C150 4 300 30 420 92C540 154 720 168 900 150C1080 132 1230 96 1440 118V180H0Z" />

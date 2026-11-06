@@ -16,6 +16,14 @@ const moriHand = localFont({
   weight: "400",
 });
 
+const moriNumber = localFont({
+  src: "./fonts/nunito-black-italic-num.woff2",
+  variable: "--font-mori-num",
+  display: "swap",
+  weight: "900",
+  style: "italic",
+});
+
 const description =
   "株式会社SHINJIDAIが運営する実務型AI開発スクール。無料のどんぐり会員でAI活用に触れ、わかば会員では前提知識を学んで当社の実案件にチームで参加。現場で使えるスキルと実務経験を育てます。";
 
@@ -43,7 +51,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja" className={`${notoSans.variable} ${moriHand.variable}`}>
+    <html lang="ja" className={`${notoSans.variable} ${moriHand.variable} ${moriNumber.variable}`}>
       <body>{children}</body>
     </html>
   );

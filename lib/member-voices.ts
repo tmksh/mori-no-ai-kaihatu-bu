@@ -1,6 +1,6 @@
 /**
- * 本人の了承を得た実際の写真とコメントだけを設定してください。
- * photo: public/ 以下のパス（例: "/assets/members/jukki.webp"）。正方形・顔が中央の写真が最適です。
+ * 本人の了承を得た画像（写真または似顔絵イラスト）とコメントだけを設定してください。
+ * photo: public/ 以下のパス（例: "/assets/members/jukki.webp"）。正方形・顔が中央の画像が最適です。
  * voice: 本人のコメント。空のあいだは「準備中」と表示されます。
  */
 export type MemberVoice = {
@@ -11,8 +11,8 @@ export type MemberVoice = {
 };
 
 export const memberVoices: MemberVoice[] = [
-  { name: "じゅっきー", role: "", photo: "", voice: "" },
-  { name: "あやとくん", role: "", photo: "", voice: "" },
-  { name: "井上さん", role: "", photo: "", voice: "" },
-  { name: "あきむねくん", role: "", photo: "", voice: "" },
+  { name: "じゅっきー", role: "", photo: "/assets/members/jukki.webp", voice: "" },
+  { name: "あやとくん", role: "", photo: "/assets/members/ayato.webp", voice: "" },
+  { name: "井上さん", role: "", photo: "/assets/members/inoue.webp", voice: "" },
+  { name: "あきむねくん", role: "", photo: "/assets/members/akimune.webp", voice: "" },
 ];

@@ -13,10 +13,10 @@ import { memberVoices } from "@/lib/member-voices";
 import { operator } from "@/lib/site-config";
 
 const growthCycle = [
-  { label: "学ぶ", next: "実践", image: "/assets/cycle-learn.webp" },
-  { label: "つくる", next: "スキル確認", image: "/assets/cycle-make.webp" },
-  { label: "実案件へ", next: "実務経験", image: "/assets/cycle-project.webp" },
-  { label: "力にする", next: "次の挑戦へ", image: "/assets/cycle-grow.webp" },
+  { label: "学ぶ", next: "実践", image: "/assets/cycle-icon-learn.webp", width: 420, height: 314 },
+  { label: "つくる", next: "スキル確認", image: "/assets/cycle-icon-make.webp", width: 420, height: 335 },
+  { label: "実案件へ", next: "実務経験", image: "/assets/cycle-icon-project.webp", width: 420, height: 419 },
+  { label: "力にする", next: "次の挑戦へ", image: "/assets/cycle-icon-grow.webp", width: 420, height: 566 },
 ];
 
 const journeySteps = [
@@ -24,29 +24,29 @@ const journeySteps = [
     number: "01",
     title: "面談で、現在地を知る",
     text: "個別面談で、これまでの経験と目標を伺います。少人数で受け入れているため、面談を通してご参加いただけるかを判断します。",
-    image: "/assets/journey-start.webp",
-    alt: "ウサギとメガネのフクロウが、森の丸太に座って地図を広げ、進む道を相談する手描きイラスト",
+    image: "/assets/journey/start.webp",
+    alt: "木のテーブルをはさみ、ノートとパソコンを置いて二人で話している面談のイメージ写真",
   },
   {
     number: "02",
     title: "どんぐり会員で、触れてみる",
     text: "無料のどんぐり会員で、ChatGPTなどを使ったAI活用に触れます。自分で手を動かし、続けられるかを確かめる期間です。",
-    image: "/assets/journey-learn.webp",
-    alt: "ツリーハウスの勉強部屋で、キツネが本を広げてパソコンで学ぶ手描きイラスト",
+    image: "/assets/journey/learn.webp",
+    alt: "窓辺の机で、パソコンのAIチャットを見ながらノートを取って学ぶイメージ写真",
   },
   {
     number: "03",
     title: "わかば会員で、実案件へ",
     text: "技術構成やセキュリティなどの前提知識を学んだうえで、業務委託として当社の実案件にチームで参加します。",
-    image: "/assets/journey-project.webp",
-    alt: "木の工房で、キツネ・ウサギ・リスが設計図を囲み、クマのお客さまと一緒に仕事を進める手描きイラスト",
+    image: "/assets/journey/project.webp",
+    alt: "3人のチームが、パソコンと画面設計のスケッチを囲んで話し合うイメージ写真",
   },
   {
     number: "04",
     title: "けやきを目指す",
     text: "お客さまとの打ち合わせを進め、メンバーに指示を出し、人に教えられる。当社の中で、自分で仕事を回せる人を目指します。その先の関わり方も、面談で一緒に決めていきます。",
-    image: "/assets/journey-next.webp",
-    alt: "キツネとウサギが、大きな木の立つ丘へ続く道を並んで歩いていく手描きイラスト",
+    image: "/assets/journey/next.webp",
+    alt: "ホワイトボードの図を使って、メンバーに進め方を説明しているイメージ写真",
   },
 ];
 
@@ -79,11 +79,6 @@ const growStages = [
   { key: "keyaki", src: "keyaki", width: 560, height: 582, label: "けやき" },
 ];
 
-const hillFlowers = [
-  [80, 215], [150, 232], [260, 206], [330, 240], [420, 196], [520, 218], [610, 186], [700, 204],
-  [780, 172], [880, 192], [960, 152], [1050, 176], [1120, 132], [1230, 152], [1300, 112], [1390, 132],
-];
-
 export default function HomePage() {
   return (
     <ConsultationProvider>
@@ -112,6 +107,7 @@ export default function HomePage() {
           </div>
         </div>
         <section id="about" className="intro section">
+          <p className="eyebrow">ABOUT</p>
           <h2>
             <span>「学んだ。でも、</span>
             <span>案件につながらない。」</span>
@@ -144,7 +140,7 @@ export default function HomePage() {
               {growthCycle.map((stage, index) => (
                 <li key={stage.label} className={`cycle-stage cycle-stage-${index + 1}`}>
                   <div className="cycle-card">
-                    <img src={stage.image} alt="" width={560} height={560} loading="lazy" />
+                    <img src={stage.image} alt="" width={stage.width} height={stage.height} loading="lazy" />
                   </div>
                   <span className="cycle-bubble">{stage.label}</span>
                   <span className="cycle-link">
@@ -160,6 +156,7 @@ export default function HomePage() {
         <section id="features" className="features section">
           <div className="container">
             <div className="section-heading">
+              <p className="eyebrow">FEATURES</p>
               <h2>
                 学びと実案件を、
                 <br />
@@ -171,21 +168,28 @@ export default function HomePage() {
               <article className="feature-card is-main">
                 <div className="feature-visual">
                   <span className="feature-number">01</span>
-                  <img
-                    className="feature-illust"
-                    src="/assets/feature-project.webp"
-                    alt="キツネとウサギが、クマのお客さまと握手して仕事を受け取る手描きイラスト"
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                  />
+                  <div className="ui-window" aria-hidden="true">
+                    <p className="ui-window-bar">
+                      <span />
+                      project_board.md
+                    </p>
+                    <div className="ui-window-body">
+                      <p className="ui-comment">// 今週のタスク</p>
+                      <ul className="ui-tasks">
+                        <li className="is-done">お客さまヒアリング</li>
+                        <li className="is-done">画面の設計</li>
+                        <li className="is-now">
+                          実装<em>あなたの担当</em>
+                        </li>
+                        <li>レビュー・納品</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <img className="feature-peek" src="/assets/feature-fox.webp" alt="" width={620} height={761} loading="lazy" />
                   <span className="feature-tag">実案件へ</span>
                 </div>
                 <div className="feature-body">
                   <h3>
-                    <svg aria-hidden="true">
-                      <use href="#acorn" />
-                    </svg>
                     学んだ先で、当社の実案件に参加する。
                   </h3>
                   <p>
@@ -197,21 +201,22 @@ export default function HomePage() {
               <article className="feature-card">
                 <div className="feature-visual">
                   <span className="feature-number">02</span>
-                  <img
-                    className="feature-illust"
-                    src="/assets/feature-mentor.webp"
-                    alt="メガネのフクロウとウサギが、切り株に座ってお茶を飲みながら話す手描きイラスト"
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                  />
+                  <div className="ui-window" aria-hidden="true">
+                    <p className="ui-window-bar">
+                      <span />
+                      1on1_chat
+                    </p>
+                    <div className="ui-window-body ui-chat">
+                      <p className="from-mentor">最近、どう？</p>
+                      <p className="from-you">エラーで止まってて…</p>
+                      <p className="from-mentor">画面、一緒に見てみよう</p>
+                    </div>
+                  </div>
+                  <img className="feature-peek" src="/assets/feature-bear.webp" alt="" width={620} height={737} loading="lazy" />
                   <span className="feature-tag">伴走</span>
                 </div>
                 <div className="feature-body">
                   <h3>
-                    <svg aria-hidden="true">
-                      <use href="#acorn" />
-                    </svg>
                     つまずいたら、一緒に考える人がいる。
                   </h3>
                   <p>
@@ -223,21 +228,26 @@ export default function HomePage() {
               <article className="feature-card">
                 <div className="feature-visual">
                   <span className="feature-number">03</span>
-                  <img
-                    className="feature-illust"
-                    src="/assets/feature-practice.webp"
-                    alt="キツネがパソコンで開発し、リスが画面設計のスケッチを指して相談する手描きイラスト"
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                  />
+                  <div className="ui-window" aria-hidden="true">
+                    <p className="ui-window-bar">
+                      <span />
+                      basics.ts
+                    </p>
+                    <pre className="ui-window-body ui-code">
+                      <code>
+                        <i>{"// 現場に入る前に"}</i>
+                        {"\n"}
+                        <b>const</b> base = {"{"}
+                        {"\n  "}stack: <s>{'"技術構成"'}</s>,{"\n  "}security: <s>{'"基本の守り方"'}</s>,{"\n  "}ready: <b>true</b>,{"\n"}
+                        {"}"}
+                      </code>
+                    </pre>
+                  </div>
+                  <img className="feature-peek" src="/assets/feature-rabbit.webp" alt="" width={620} height={929} loading="lazy" />
                   <span className="feature-tag">土台から</span>
                 </div>
                 <div className="feature-body">
                   <h3>
-                    <svg aria-hidden="true">
-                      <use href="#acorn" />
-                    </svg>
                     現場に入る前に、土台をつくる。
                   </h3>
                   <p>
@@ -276,11 +286,6 @@ export default function HomePage() {
             ))}
             <svg className="hill-shape hill-front" viewBox="0 0 1440 260" preserveAspectRatio="none">
               <path d="M0 200C240 190 420 160 640 150S1000 120 1180 92S1380 70 1440 72V260H0Z" />
-              <g className="hill-flowers">
-                {hillFlowers.map(([x, y], i) => (
-                  <circle key={x} cx={x} cy={y} r={i % 3 === 0 ? 3.2 : 4.2} style={{ "--i": i } as React.CSSProperties} />
-                ))}
-              </g>
             </svg>
             <div className="grow-squirrel">
               <img src="/assets/grow/squirrel.webp" alt="" width={220} height={187} loading="lazy" />
@@ -290,6 +295,7 @@ export default function HomePage() {
         <section id="courses" className="courses section">
           <div className="container">
             <div className="section-heading">
+              <p className="eyebrow">COURSE</p>
               <h2>
                 <span>どんぐりから、</span>
                 <span>大きなけやきへ。</span>
@@ -299,13 +305,13 @@ export default function HomePage() {
             <div className="course-grid">
               <article className="course donguri">
                 <div className="course-head">
-                  <span className="course-stage">ステップ１</span>
+                  <span className="course-stage">STEP 01</span>
                   <img
                     className="course-illust"
-                    src="/assets/course-donguri.webp"
-                    alt="リスが土にどんぐりを植える手描きイラスト"
-                    width={800}
-                    height={800}
+                    src="/assets/grow/sprout.webp"
+                    alt=""
+                    width={260}
+                    height={203}
                     loading="lazy"
                   />
                   <p className="course-catch">まずは、種をまこう。</p>
@@ -327,13 +333,13 @@ export default function HomePage() {
               </article>
               <article className="course wakaba">
                 <div className="course-head">
-                  <span className="course-stage">ステップ２</span>
+                  <span className="course-stage">STEP 02</span>
                   <img
                     className="course-illust"
-                    src="/assets/course-wakaba.webp"
-                    alt="ウサギが若木に水をあげる手描きイラスト"
-                    width={800}
-                    height={800}
+                    src="/assets/grow/sapling.webp"
+                    alt=""
+                    width={320}
+                    height={616}
                     loading="lazy"
                   />
                   <p className="course-catch">実務で、できることを広げよう。</p>
@@ -355,13 +361,13 @@ export default function HomePage() {
               </article>
               <article className="course keyaki">
                 <div className="course-head">
-                  <span className="course-stage">ゴール</span>
+                  <span className="course-stage">GOAL</span>
                   <img
                     className="course-illust"
-                    src="/assets/course-keyaki.webp"
-                    alt="大きなけやきの下で、キツネ・ウサギ・リス・クマがチームで仕事をする手描きイラスト"
-                    width={800}
-                    height={800}
+                    src="/assets/grow/keyaki.webp"
+                    alt=""
+                    width={560}
+                    height={582}
                     loading="lazy"
                   />
                   <p className="course-catch">仲間と、大きく育とう。</p>
@@ -394,20 +400,36 @@ export default function HomePage() {
         <section id="stories" className="stories section">
           <div className="container story-layout">
             <div className="story-visual">
-              <img
-                src="/assets/forest-friends.webp"
-                alt="キツネとウサギが、小さな木の机で一緒に開発する手描きイラスト"
-                width={1024}
-                height={1024}
-                loading="lazy"
-              />
+              <div className="story-photo">
+                <img
+                  src="/assets/story/photo.webp"
+                  alt="窓辺の机でパソコンに向かい、届いたメッセージを読んで笑顔になっているイメージ写真"
+                  width={720}
+                  height={960}
+                  loading="lazy"
+                />
+                <div className="story-notice story-notice-client" aria-hidden="true">
+                  <p className="story-notice-head">
+                    <b>お</b>お客さま<time>たった今</time>
+                  </p>
+                  <p>新しい画面、とても使いやすいです。ありがとうございます！</p>
+                </div>
+                <div className="story-notice story-notice-team" aria-hidden="true">
+                  <p className="story-notice-head">
+                    <b>リ</b>チームリーダー<time>5分前</time>
+                  </p>
+                  <p>レビューOK！次の機能もお願いします</p>
+                </div>
+              </div>
               <span className="story-paper">
                 学んだことが、
                 <br />
                 「ありがとう」に変わる。
               </span>
+              <small className="story-caption">※ 写真・メッセージはイメージです。</small>
             </div>
             <div className="story-copy">
+              <p className="eyebrow">STORY</p>
               <h2>
                 学びの先の景色を、
                 <br />
@@ -428,7 +450,7 @@ export default function HomePage() {
                 <li key={member.name} className="member-voice">
                   <div className="member-photo">
                     {member.photo ? (
-                      <img src={member.photo} alt={`${member.name}の写真`} width={240} height={240} loading="lazy" />
+                      <img src={member.photo} alt={`${member.name}のイラスト`} width={240} height={240} loading="lazy" />
                     ) : (
                       <span aria-hidden="true">{member.name.charAt(0)}</span>
                     )}
@@ -454,6 +476,7 @@ export default function HomePage() {
           </svg>
           <div className="container">
             <div className="section-heading">
+              <p className="eyebrow">FLOW</p>
               <h2>
                 <span>学びを、</span>
                 <span>仕事につなぐ道のり。</span>
@@ -483,6 +506,7 @@ export default function HomePage() {
                 ))}
               </ol>
             </div>
+            <p className="journey-note">※ 写真はイメージです。</p>
           </div>
           <svg className="journey-wave journey-wave-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
             <path d="M0 90H1440V40C1340 14 1220 58 1080 46S820 6 660 30 380 72 230 52 70 22 0 36Z" />
@@ -492,9 +516,7 @@ export default function HomePage() {
           <div className="container">
             <div className="support-inner">
               <div className="support-copy">
-                <div className="support-illust">
-                  <img src="/assets/feature-mentor.webp" alt="" width={800} height={800} loading="lazy" />
-                </div>
+                <p className="support-eyebrow">1on1 SUPPORT</p>
                 <h2>
                   <span>「最近、どう？」が</span>
                   <span>ある安心。</span>
@@ -510,7 +532,11 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="support-note">
-                <p>森の1on1ノート</p>
+                <p className="support-note-bar">
+                  <span aria-hidden="true" />
+                  1on1_note.md
+                </p>
+                <p className="support-note-comment">// 森の1on1でやること</p>
                 <ul>
                   <li>今の「できた」を振り返る</li>
                   <li>つまずいていることを整理する</li>
@@ -520,6 +546,7 @@ export default function HomePage() {
                   <b>2週間に1回</b>
                   <small>を基本に、一人ひとりに合わせて</small>
                 </div>
+                <img className="support-peek" src="/assets/hero/squirrel.webp" alt="" width={300} height={353} loading="lazy" />
               </div>
             </div>
           </div>
@@ -527,6 +554,7 @@ export default function HomePage() {
         <section id="faq" className="faq section">
           <div className="container narrow">
             <div className="section-heading">
+              <p className="eyebrow">FAQ</p>
               <h2>
                 <span>森に入る前の、</span>
                 <span>気になること。</span>
@@ -584,17 +612,17 @@ export default function HomePage() {
               <details>
                 <summary>
                   <span>Q.</span> 料金を教えてください。<i>＋</i>
-                  <span>Q.</span> けやきにたどり着いたら、どうなりますか？<i>＋</i>
                 </summary>
                 <p>
-                  そこで終わりではありません。当社の中でどんな役割を担っていくか、次にどんな挑戦をするかを、面談で一緒に決めていきます。
+                  どんぐり会員は無料です。わかば会員の受講料・案件報酬・支払い方法は現在調整中のため、決まり次第ご案内します。個別面談では、ご希望や目標に合った進め方についてお話しします。
                 </p>
               </details>
               <details>
                 <summary>
+                  <span>Q.</span> けやきにたどり着いたら、どうなりますか？<i>＋</i>
                 </summary>
                 <p>
-                  どんぐり会員は無料です。わかば会員の受講料・案件報酬・支払い方法は現在調整中のため、決まり次第ご案内します。個別面談では、ご希望や目標に合った進め方についてお話しします。
+                  そこで終わりではありません。当社の中でどんな役割を担っていくか、次にどんな挑戦をするかを、面談で一緒に決めていきます。
                 </p>
               </details>
             </div>
@@ -655,14 +683,6 @@ export default function HomePage() {
             </ConsultationTrigger>
             <p className="footer-copyright">© 森のAI開発部</p>
           </div>
-        </div>
-        <div className="footer-scene" aria-hidden="true">
-          <div className="footer-scene-photo">
-            <img src="/assets/forest-landscape.webp" alt="" width={1536} height={1024} loading="lazy" />
-          </div>
-          <div className="footer-scene-hill" />
-          <p className="footer-scene-bubble">一緒に育とう！</p>
-          <img className="footer-scene-friends" src="/assets/forest-friends.webp" alt="" width={1254} height={1254} loading="lazy" />
         </div>
       </footer>
     </ConsultationProvider>

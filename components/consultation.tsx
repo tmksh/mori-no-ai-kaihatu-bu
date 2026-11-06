@@ -4,11 +4,6 @@ import { createContext, useContext, useRef, useState, type ReactNode } from "rea
 import { ContactForm } from "@/components/contact-form";
 import { consultationUrl } from "@/lib/site-config";
 
-const fireflies: [left: number, top: number, delay: number][] = [
-  [8, 22, 0], [17, 58, 1.4], [26, 14, 2.6], [33, 44, 0.8], [62, 18, 2.1],
-  [70, 52, 0.3], [79, 26, 1.8], [88, 46, 3.1], [93, 16, 1.1], [48, 8, 2.4],
-];
-
 type ConsultationContextValue = {
   selectedCourse: string | null;
   selectCourse: (course: string) => void;
@@ -124,12 +119,8 @@ export function ConsultationPanel() {
   const { selectedCourse, openConsultation } = useConsultation();
   return (
     <section id="consultation" className="consultation section">
-      <div className="cta-fireflies" aria-hidden="true">
-        {fireflies.map(([left, top, delay], index) => (
-          <i key={index} style={{ left: `${left}%`, top: `${top}%`, animationDelay: `${delay}s` }} />
-        ))}
-      </div>
       <div className="container consultation-inner">
+        <p className="eyebrow">CONTACT</p>
         <h2>
           学びを、
           <br />

@@ -14,6 +14,7 @@ const revealTargets: [selector: string, variant: string][] = [
   [".journey-step", "up"],
   [".support-copy", "left"],
   [".support-note", "right"],
+  [".support-note li", "pop"],
   [".faq-list details", "up"],
   [".consultation-inner", "up"],
 ];

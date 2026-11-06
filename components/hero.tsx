@@ -49,8 +49,17 @@ export function Hero() {
         <div className="scene-layer scene-house" style={{ "--depth": 0.35 } as React.CSSProperties}>
           <img src="/assets/hero/treehouse.webp" alt="" width={597} height={1015} />
         </div>
-        <div className="scene-layer scene-animals" style={{ "--depth": 0.05 } as React.CSSProperties}>
-          <img src="/assets/hero/animals.webp" alt="" width={760} height={472} />
+        <div className="scene-layer scene-friend scene-fox" style={{ "--depth": 0.05 } as React.CSSProperties}>
+          <img src="/assets/hero/fox.webp" alt="" width={420} height={592} />
+        </div>
+        <div className="scene-layer scene-friend scene-rabbit" style={{ "--depth": 0.05 } as React.CSSProperties}>
+          <img src="/assets/hero/rabbit.webp" alt="" width={300} height={555} />
+        </div>
+        <div className="scene-layer scene-friend scene-bear" style={{ "--depth": 0.05 } as React.CSSProperties}>
+          <img src="/assets/hero/bear.webp" alt="" width={400} height={632} />
+        </div>
+        <div className="scene-layer scene-friend scene-squirrel" style={{ "--depth": -0.1 } as React.CSSProperties}>
+          <img src="/assets/hero/squirrel.webp" alt="" width={300} height={353} />
         </div>
         <div className="scene-layer scene-bird" style={{ "--depth": -0.5 } as React.CSSProperties}>
           <img src="/assets/hero/bird.webp" alt="" width={220} height={222} />

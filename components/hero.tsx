@@ -29,7 +29,7 @@ export function Hero() {
           </h1>
           <p className="hero-description">
             <span>案件獲得に悩んでいるあなたへ。</span>
-            <span>基礎を学び、当社の実案件にチームで挑戦する。</span>
+            <span>基礎を学び、実案件にチームで挑戦する。</span>
             <br />
             <span>現場で使えるスキルと経験を、ここから。</span>
           </p>

@@ -638,11 +638,8 @@ export default function HomePage() {
         <div className="footer-main">
           <div className="footer-info">
             <a href="#" className="footer-brand" aria-label="森のAI開発部 トップ">
-              <img src="/assets/logo-mark.webp" alt="" width={256} height={256} loading="lazy" />
-              <span>
-                <small>実務型AI開発スクール</small>
-                <strong>森のAI開発部</strong>
-              </span>
+              <small>実務型AI開発スクール</small>
+              <img src="/assets/logo-lockup.webp" alt="森のAI開発部" width={1024} height={273} loading="lazy" />
             </a>
             <p className="footer-tagline">
               <span>小さな一歩が、</span>
